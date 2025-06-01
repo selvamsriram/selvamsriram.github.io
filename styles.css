@@ -372,6 +372,7 @@ html {
 
 .section:nth-child(even) {
     background-color: var(--section-bg);
+    border-radius: 1.5em;
 }
 
 .section h2 {
@@ -844,7 +845,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 0;
     right: 0;
     transform: translateY(-50%);

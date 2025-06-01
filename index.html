@@ -30,7 +30,7 @@
             </div>
             <div class="hero-text">
                 <h1>Sriram Selvam</h1>
-                <p class="subtitle">I am a Senior Software Engineer with Microsoft AI, focusing on building generative AI solutions. I specialize in distributed LLM systems, Generative Search. I spend my personal time exploring vulnerabilities in LLMs and research on addressing critical gaps in the research systems.</p>
+                <p class="subtitle">I am a Senior Software Engineer with Microsoft AI, building generative AI solutions. I specialize in generative search and LLM application built on top of distributed systems. I spend my personal time exploring vulnerabilities in LLMs and research on addressing critical gaps in the research systems.</p>
                 <div class="skills">
                     <span class="skill-tag">Large Language Models</span>
                     <span class="skill-tag">Distributed System</span>
@@ -151,6 +151,24 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="project-card">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-title-group">
+                                    <img src="media/bing.svg" alt="Creator Assist" class="project-logo">
+                                    <h3>Creator and Code Assist</h3>
+                                </div>
+                                <span class="status">Past</span>
+                            </div>
+                            <p class="description">This feature helps user get tailored LLM generated responses for their tasks with minimal prompting. Feature focuses on various areas such as email writing, story creation, code queries and creation.</p>
+                            <p class="description">I developed the prompts and the prompt templating engine powering this experience. In addition to it, I was also responsbile for putting together the UX panel for customization. </p>
+                            <div class="project-links">
+                                <a href="https://www.bing.com/search?pglt=417&q=write+a+story+for+my+3+yo" class="button">Try Writing<i class="fas fa-arrow-right"></i></a>
+                                <a href="https://www.bing.com/search?q=python%20code%20for%20tree%20traversal%20when%20viewed%20from%20top%20to%20bottom"class="button">Try Coding <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -159,63 +177,76 @@
             <h2>Industry Experience</h2>
             <div class="content">
                 <div class="timeline">
+        
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3>Tech Innovations Inc.</h3>
-                                <span class="duration">2022 - Present</span>
+                                <h3>Microsoft Corporation</h3>
+                                <span class="duration">Jun 2020 – Present</span>
                             </div>
                             <p class="role">Senior Software Engineer</p>
-                            <p class="description">Leading the development of innovative solutions that combine technical excellence with elegant design.</p>
+                            <p class="description">Worked across multiple teams in Bing including Copilot Search, Generative Search, Creator, Personas, and Knowledge Graph enrichment using LLMs.</p>
                             <div class="achievements">
                                 <ul>
-                                    <li>Architected scalable microservices infrastructure</li>
-                                    <li>Led a team in delivering key platform features</li>
-                                    <li>Implemented performance optimizations</li>
+                                    <li>Worked with various teams in Bing to onboard various enrichment experiences into Copilot Search</li>
+                                    <li>Designed and built the framework for collecting candidates and selecting the enrichments to go along with generated text responses.</li>
+                                    <li>Designed and built the offline GPT data generation engine powering creation of millions of result pages for Bing Generative Search</li>
+                                    <li>Filed patent with US PTO for the work on Generative Search</li>
+                                    <li>Developed dynamic prompt system and customization panel for Bing Creator & Personas, expanding support to coding and productivity segments</li>
+                                    <li>Increased engaged DAU by 15x through new segment integration and response control mechanisms</li>
+                                    <li>Built service APIs to customize LLM response traits (style, content, creativity)</li>
+                                    <li>Enhanced Bing’s Knowledge Graph (Satori) using GPT-4 to extract contextual details while respecting ranking logic</li>
+                                    <li>Powered entity refinement tabs (e.g., Cast, Watch, Plot) and proposed and developed experiences like Black Friday shopping deals</li>
+                                    <li>Maintained high-quality data generation pipeline for millions of dynamic entities</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
+        
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3>Cloud Solutions Ltd.</h3>
-                                <span class="duration">2020 - 2022</span>
+                                <h3>IP Infusion</h3>
+                                <span class="duration">Nov 2013 – Aug 2018</span>
+                            </div>
+                            <p class="role">Technical Lead Engineer</p>
+                            <p class="description">Led and contributed to protocol design, data center networking, and kernel-level enhancements for major clients including Ciena, Fujitsu, and Apple.</p>
+                            <div class="achievements">
+                                <ul>
+                                    <li>Led team in implementing Path Computation Element Protocol (PCEP) per RFC 8281/8231 for Ciena’s SDN MPLS tunnels</li>
+                                    <li>Developed BGP Labelled Unicast by unifying IP/MPLS routes; received Best Individual Contributor award</li>
+                                    <li>Implemented IP Fast Reroute in IS-IS protocol achieving zero traffic loss; recognized by IP Infusion CEO</li>
+                                    <li>Designed RSTP for MC-LAG to eliminate broadcast loops in data center networks</li>
+                                    <li>Enhanced Linux Kernel 3.16.7 to simulate L2 control protocols on VMs for protocol testing</li>
+                                    <li>Delivered full VRF support for SSH, TELNET, SYSLOG, etc., in Debian using SNAT/DNAT/IP Tables; helped win Apple evaluation</li>
+                                    <li>Reduced TRILL convergence time from 500ms to 5ms for Fujitsu's Japan deployment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Aricent Group</h3>
+                                <span class="duration">Oct 2011 – Nov 2013</span>
                             </div>
                             <p class="role">Software Engineer</p>
-                            <p class="description">Developed and maintained cloud-based applications with focus on scalability and reliability.</p>
+                            <p class="description">Worked on switching solutions for EPON OLT used in Japan's broadband infrastructure.</p>
                             <div class="achievements">
                                 <ul>
-                                    <li>Reduced system latency by 40% through optimization</li>
-                                    <li>Implemented CI/CD pipelines improving deployment efficiency</li>
-                                    <li>Mentored junior developers in best practices</li>
+                                    <li>Developed enhancements for Sumitomo Electric’s FSU 7100 EPON OLT used by Time Warner Cable</li>
+                                    <li>Implemented NTP support using socket-based integration with open NTPD</li>
+                                    <li>Developed and tested features on IS-IS routing protocols in Aricent's Intelligent Switching Solution product</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Startup Accelerator</h3>
-                                <span class="duration">2018 - 2020</span>
-                            </div>
-                            <p class="role">Full Stack Developer</p>
-                            <p class="description">Built and scaled multiple web applications from concept to production.</p>
-                            <div class="achievements">
-                                <ul>
-                                    <li>Developed MVP for 3 successful startups</li>
-                                    <li>Implemented automated testing reducing bugs by 60%</li>
-                                    <li>Optimized database queries improving performance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        
                 </div>
             </div>
         </section>
-
+                
         <section id="media" class="section">
             <h2>Media Coverage</h2>
             <div class="content">
