@@ -77,6 +77,15 @@ body {
 /* Apply animations to elements */
 .hero-content h1 {
     animation: fadeInDown 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
 }
 
 .hero-content .subtitle {
@@ -331,6 +340,9 @@ html {
     color: var(--primary-color);
     font-family: 'Playfair Display', serif;
     letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
 }
 
 .subtitle {
@@ -346,8 +358,8 @@ html {
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
 }
 
 .social-links a {
@@ -383,12 +395,22 @@ html {
 
 .section h2 {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
     color: var(--primary-color);
     font-weight: 700;
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.5px;
+}
+
+.section-description {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .content {
@@ -539,6 +561,7 @@ footer {
     
     .hero-content h1 {
         font-size: 3rem;
+        justify-content: center;
     }
     
     .section {
@@ -750,8 +773,17 @@ footer {
 /* Resume Actions */
 .resume-actions {
     display: flex;
-    gap: 1rem;
+    justify-content: flex-end;
     margin-top: 2rem;
+    padding-right: 1rem;
+}
+
+.resume-actions .button {
+    min-width: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 /* Footer Links */
@@ -826,6 +858,7 @@ footer {
 .hero .skills {
     justify-content: flex-start;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* Profile Picture */
@@ -997,6 +1030,7 @@ footer {
 
 /* View More Container */
 .view-more-container {
+    display: none;
     text-align: center;
     margin-top: 4rem;
     padding: 2rem 0;
@@ -1009,4 +1043,378 @@ footer {
     align-items: center;
     justify-content: center;
     min-width: 200px;
+}
+
+/* Alma Mater Styles */
+.alma-mater {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: rgba(139, 90, 43, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(139, 90, 43, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.alma-mater:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.alma-mater i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.alma-mater span {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.alma-mater .degree {
+    color: var(--light-text);
+    font-size: 0.95rem;
+    margin-left: auto;
+}
+
+/* Media Quotes Styles */
+.media-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.media-quote {
+    position: relative;
+}
+
+.media-quote blockquote {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.media-quote blockquote p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-style: italic;
+    margin: 0;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.media-quote blockquote p::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 3rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.media-quote blockquote p::after {
+    content: '"';
+    position: absolute;
+    right: 0;
+    bottom: -1rem;
+    font-size: 3rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.quote-attribution {
+    margin-top: 1.5rem;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.source-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.article-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.article-link:hover {
+    color: var(--secondary-color);
+}
+
+.article-link i {
+    transition: transform 0.3s ease;
+}
+
+.article-link:hover i {
+    transform: translateX(4px);
+}
+
+/* University Logo Styles */
+.university-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    /*filter: brightness(0) saturate(100%) invert(23%) sepia(15%) saturate(2000%) hue-rotate(346deg) brightness(90%) contrast(90%);*/
+    transition: all 0.3s ease;
+}
+
+.education-title:hover .university-logo {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .media-quote blockquote p {
+        font-size: 1.2rem;
+        padding: 0 1.5rem;
+    }
+
+    .quote-attribution {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+
+    .university-logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Education Styles */
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.education-item {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(139, 90, 43, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.education-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.education-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.education-title i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.education-title h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.degree {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.thesis h4,
+.courses h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.thesis p {
+    color: var(--light-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.thesis a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.thesis a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.course-tag {
+    background: rgba(139, 90, 43, 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.course-tag:hover {
+    background: rgba(139, 90, 43, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .quote-meta {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .source-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .course-tags {
+        gap: 0.75rem;
+    }
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid rgba(139, 90, 43, 0.1);
+}
+
+.linkedin-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.linkedin-link i {
+    font-size: 1.25rem;
+}
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resume-header .lead {
+    margin: 0;
+    flex: 1;
+}
+
+.resume-header .button {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .resume-header .button {
+        align-self: flex-end;
+    }
+}
+
+.name-linkedin-link {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-linkedin-link:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+        justify-content: center;
+    }
+    
+    .name-linkedin-link {
+        font-size: 1.25rem;
+    }
 } 
