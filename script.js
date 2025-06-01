@@ -12,14 +12,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Enhanced animation system
+// Enhanced animation system with mobile optimization
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item');
+    const mobileOffset = window.innerWidth <= 768 ? 50 : 100;
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const elementBottom = element.getBoundingClientRect().bottom;
-        const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+        const isVisible = (elementTop < window.innerHeight - mobileOffset) && (elementBottom > 0);
         
         if (isVisible) {
             element.classList.add('animate-in');
@@ -35,10 +36,18 @@ document.querySelectorAll('.section, .section h2, .section p, .section .lead, .w
 // Initial check for elements in view
 animateOnScroll();
 
-// Listen for scroll events
-window.addEventListener('scroll', animateOnScroll);
+// Listen for scroll events with throttling
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+            animateOnScroll();
+            scrollTimeout = null;
+        }, 100);
+    }
+});
 
-// Navbar background change on scroll
+// Navbar background change on scroll with mobile optimization
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -50,13 +59,17 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Navbar name visibility and expansion
+// Navbar name visibility and expansion with mobile optimization
 const navName = document.querySelector('.nav-name');
 const heroTitle = document.querySelector('.hero-content h1');
 
 function updateNavNameVisibility() {
+    if (!navName || !heroTitle) return;
+    
     const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
-    if (heroTitleBottom < 0) {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (heroTitleBottom < 0 || isMobile) {
         navName.classList.add('visible');
         navbar.classList.add('expanded');
     } else {
@@ -71,7 +84,7 @@ window.addEventListener('resize', updateNavNameVisibility);
 // Initial check
 updateNavNameVisibility();
 
-// Writing Carousel
+// Writing Carousel with mobile optimization
 document.addEventListener('DOMContentLoaded', function() {
     const writingGrid = document.querySelector('.writing-grid');
     const prevButton = document.querySelector('.carousel-prev');
@@ -79,8 +92,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!writingGrid || !prevButton || !nextButton) return;
 
-    const itemWidth = 350; // Width of each item including gap
-    const gap = 40; // Gap between items
+    const isMobile = window.innerWidth <= 768;
+    const itemWidth = isMobile ? 280 : 350; // Adjusted width for mobile
+    const gap = isMobile ? 20 : 40; // Adjusted gap for mobile
     
     function updateButtonVisibility() {
         const scrollLeft = writingGrid.scrollLeft;
@@ -120,6 +134,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial button visibility
     updateButtonVisibility();
 
-    // Update on window resize
-    window.addEventListener('resize', updateButtonVisibility);
+    // Update on window resize with debouncing
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            updateButtonVisibility();
+        }, 250);
+    });
+});
+
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Close menu when clicking a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    });
 }); 
