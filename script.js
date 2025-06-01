@@ -106,8 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function scrollToNext() {
         const currentScroll = writingGrid.scrollLeft;
-        const itemsPerView = Math.floor(writingGrid.clientWidth / itemWidth);
-        const scrollAmount = itemsPerView * itemWidth;
+        const scrollAmount = itemWidth + gap;
         
         writingGrid.scrollTo({
             left: currentScroll + scrollAmount,
@@ -117,14 +116,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function scrollToPrev() {
         const currentScroll = writingGrid.scrollLeft;
-        const itemsPerView = Math.floor(writingGrid.clientWidth / itemWidth);
-        const scrollAmount = itemsPerView * itemWidth;
+        const scrollAmount = itemWidth + gap;
         
         writingGrid.scrollTo({
             left: currentScroll - scrollAmount,
             behavior: 'smooth'
         });
     }
+
+    // Add touch scrolling support
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    writingGrid.addEventListener('mousedown', (e) => {
+        isDown = true;
+        writingGrid.style.cursor = 'grabbing';
+        startX = e.pageX - writingGrid.offsetLeft;
+        scrollLeft = writingGrid.scrollLeft;
+    });
+
+    writingGrid.addEventListener('mouseleave', () => {
+        isDown = false;
+        writingGrid.style.cursor = 'grab';
+    });
+
+    writingGrid.addEventListener('mouseup', () => {
+        isDown = false;
+        writingGrid.style.cursor = 'grab';
+    });
+
+    writingGrid.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - writingGrid.offsetLeft;
+        const walk = (x - startX) * 2;
+        writingGrid.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events
+    writingGrid.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - writingGrid.offsetLeft;
+        scrollLeft = writingGrid.scrollLeft;
+    });
+
+    writingGrid.addEventListener('touchend', () => {
+        isDown = false;
+    });
+
+    writingGrid.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - writingGrid.offsetLeft;
+        const walk = (x - startX) * 2;
+        writingGrid.scrollLeft = scrollLeft - walk;
+    });
 
     // Event listeners
     nextButton.addEventListener('click', scrollToNext);
