@@ -14,7 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Enhanced animation system with mobile optimization
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item');
+    const elements = document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item, .achievements li');
     const mobileOffset = window.innerWidth <= 768 ? 50 : 100;
     
     elements.forEach(element => {
@@ -29,7 +29,7 @@ const animateOnScroll = () => {
 };
 
 // Add animation classes to elements
-document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item').forEach(element => {
+document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item, .achievements li').forEach(element => {
     element.classList.add('animate-element');
 });
 
