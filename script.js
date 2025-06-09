@@ -15,7 +15,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Enhanced animation system with mobile optimization
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.section, .section h2, .section p, .section .lead, .writing-item, .media-item, .project-card, .timeline-item, .achievements li');
-    const mobileOffset = window.innerWidth <= 768 ? 50 : 100;
+    const mobileOffset = window.innerWidth <= 768 ? 100 : 150; // Increased offset to trigger earlier
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
         scrollTimeout = setTimeout(() => {
             animateOnScroll();
             scrollTimeout = null;
-        }, 100);
+        }, 50); // Reduced timeout for more responsive animations
     }
 });
 
