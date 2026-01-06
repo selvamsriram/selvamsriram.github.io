@@ -1197,6 +1197,12 @@ footer {
     object-fit: contain;
 }
 
+.cafe-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
 .project-content {
     width: 100%;
 }
@@ -1711,4 +1717,4 @@ footer {
         font-size: 1.1rem;
         padding: 0.6rem 1.2rem;
     }
-} 
+}
