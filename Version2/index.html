@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sriram Selvam - Microsoft AI</title>
+<meta name="description" content="Sriram Selvam is a Senior Software Engineer at Microsoft AI and independent researcher building agentic AI systems for search, retrieval, grounding, and privacy." />
+<meta name="author" content="Sriram Selvam" />
+<meta name="theme-color" content="#FCFAF5" />
+<link rel="canonical" href="https://www.srirams.dev/" />
+<link rel="icon" type="image/svg+xml" href="https://www.srirams.dev/favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sriram Selvam — Microsoft AI" />
+<meta property="og:description" content="Agentic AI for search, retrieval, grounding, and trustworthy evidence." />
+<meta property="og:url" content="https://www.srirams.dev/" />
+<meta property="og:image" content="https://www.srirams.dev/media/profilepic.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sriram Selvam — Microsoft AI" />
+<meta name="twitter:description" content="Agentic AI for search, retrieval, grounding, and trustworthy evidence." />
+<meta name="twitter:image" content="https://www.srirams.dev/media/profilepic.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper, #FCFAF5); color: #1E1C19; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: 'Source Serif 4', Georgia, serif; }
+  ::selection { background: rgba(154,74,44,0.16); }
+  [data-page] { --ink:#1E1C19; --ink-2:#57534C; --ink-3:#6E6A62; --ff-body:'Source Serif 4',Georgia,serif; --fw-body:400; --fs-hero:22px; --fs-lead:17.5px; --fs-body:17px; --fs-sm:16.5px; --lh-body:1.75; --lh-sm:1.70; --fs-meta:10.5px; }
+  [data-read="large"] { --fs-hero:24px; --fs-lead:19.5px; --fs-body:19px; --fs-sm:18px; --lh-body:1.70; --lh-sm:1.66; --ink-2:#454039; --ink-3:#5F5A52; --fs-meta:11.5px; }
+  [data-read="sans"] { --ff-body:'Source Sans 3',-apple-system,'Segoe UI',sans-serif; --fs-lead:18px; --fs-body:17.5px; --fs-sm:17px; --lh-body:1.68; --lh-sm:1.64; --ink-2:#4A453E; --ink-3:#5F5A52; --fs-meta:11px; }
+  [data-read="dark"] { --fw-body:500; --ink-2:#332F29; --ink-3:#55504A; --fs-lead:18px; --fs-body:17.5px; --fs-sm:17px; --lh-body:1.76; --lh-sm:1.72; --fs-meta:11px; }
+  a { color: #1E1C19; text-decoration: none; border-bottom: 1px solid rgba(154,74,44,0.34); transition: color 260ms ease, border-color 260ms ease; }
+  a:hover { color: #9A4A2C; border-color: #9A4A2C; }
+  a[data-hover*="background-size:100% 1px"]:hover { background-size: 100% 1px !important; }
+  a[data-hover*="transform:translateX(7px)"]:hover { transform: translateX(7px) !important; }
+  a[data-hover*="background:var(--panel"]:hover { background: var(--panel, #F4F1E9) !important; }
+  a[data-hover*="color:#9A4A2C"]:hover { color: #9A4A2C !important; }
+  button:focus-visible, a:focus-visible { outline: 2px solid #9A4A2C; outline-offset: 4px; }
+  [data-theme-bar] button { touch-action: manipulation; }
+  [data-system-meta] { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding-top:0 !important; }
+  [data-system-meta] > div { position:absolute; top:calc(50% + 49px); left:0; right:0; justify-content:center; }
+  [data-system-mark] { width:72px; height:72px; display:grid; place-items:center; overflow:hidden; box-sizing:border-box; transition:transform 320ms cubic-bezier(.2,.7,.2,1), opacity 320ms ease; }
+  [data-system-logo] { width:72px; height:72px; object-fit:contain; display:block; opacity:0.82; mix-blend-mode:multiply; filter:grayscale(1) sepia(0.9) saturate(2.1) hue-rotate(332deg) brightness(0.67) contrast(1.08); }
+  [data-system-logo="cafe"] { width:72px; height:72px; object-fit:cover; opacity:0.78; filter:grayscale(1) sepia(0.72) saturate(1.7) hue-rotate(338deg) brightness(0.72) contrast(1.12); }
+  #systems article:hover [data-system-mark] { transform:translateY(-2px); opacity:0.92; }
+  @media (max-width: 1059px) {
+    [data-nav-rail] { display: none !important; }
+    [data-nav-narrow] { display: block !important; }
+    [data-main] { padding: 58px 36px 0 !important; }
+    [data-meta-col] { flex-basis: 92px !important; }
+    [data-row] { gap: 24px !important; }
+  }
+  @media (max-width: 680px) {
+    [data-main] { padding: 58px 22px 0 !important; }
+    [data-nav-narrow-scroll] { padding: 13px 22px !important; gap: 18px !important; }
+    [data-row] { flex-direction: column !important; gap: 12px !important; }
+    [data-meta-col] { flex: 0 0 auto !important; width: 100% !important; }
+    [data-system-meta] { position:static; flex-direction:row !important; align-items:center !important; justify-content:flex-start !important; gap:12px !important; text-align:left !important; }
+    [data-system-meta] > div { position:static; justify-content:flex-start; }
+    [data-system-mark] { width:56px; height:56px; }
+    [data-system-logo] { width:56px; height:56px; }
+    [data-system-logo="cafe"] { width:56px; height:56px; }
+    [data-row] > * { max-width: none !important; }
+    #index { padding-top: 80px !important; padding-bottom: 88px !important; }
+    #index h1 { font-size: clamp(46px, 16vw, 68px) !important; }
+    #press > div:nth-of-type(2) { grid-template-columns: 1fr !important; }
+    [data-theme-bar] { position: static !important; max-width: none !important; margin: 48px 14px 14px !important; justify-content: center !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<div data-page="sriram" data-read="current" style="background:var(--paper,#FCFAF5); min-height:100vh; position:relative; overflow-x:hidden">
+
+  <nav data-nav-rail="" style="position:fixed; left:48px; top:88px; width:190px; z-index:30">
+    <div data-reveal="" data-delay="120" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1)">
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.18em; text-transform:uppercase; color:#1E1C19">Sriram Selvam</div>
+      <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.14em; color:var(--ink-3,#6E6A62); margin-top:5px">srirams.dev</div>
+      <div style="height:1px; background:rgba(30,28,25,0.14); margin:22px 0 20px"></div>
+      <div style="display:flex; flex-direction:column; gap:3px">
+        <a href="#index" data-nav="index" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Index</span></a>
+        <a href="#research" data-nav="research" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Research</span></a>
+        <a href="#systems" data-nav="systems" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Systems</span></a>
+        <a href="#writing" data-nav="writing" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Writing</span></a>
+        <a href="#experience" data-nav="experience" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Experience</span></a>
+        <a href="#press" data-nav="press" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Press</span></a>
+        <a href="#education" data-nav="education" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Education</span></a>
+        <a href="#contact" data-nav="contact" style="display:flex; align-items:center; gap:12px; border-bottom:none; padding:4px 0"><span data-nav-rule="" style="display:block; width:12px; height:1px; background:rgba(30,28,25,0.28); transition:width 420ms cubic-bezier(.2,.7,.2,1), background-color 420ms ease"></span><span data-nav-label="" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); transition:color 420ms ease">Contact</span></a>
+      </div>
+      <div style="height:1px; background:rgba(30,28,25,0.14); margin:22px 0 18px"></div>
+      <a href="https://www.srirams.dev/media/SriramSelvamResumeJan2025.pdf" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Curriculum vitae ↗</a>
+    </div>
+  </nav>
+
+
+  <nav data-nav-narrow="" style="display:none; position:fixed; top:0; left:0; right:0; z-index:45; background:var(--paper,#FCFAF5); border-bottom:1px solid rgba(30,28,25,0.14)">
+    <div data-nav-narrow-scroll="" style="display:flex; gap:22px; align-items:center; overflow-x:auto; padding:14px 36px; -webkit-overflow-scrolling:touch">
+      <a href="#index" data-nav2="index" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Index</a>
+      <a href="#research" data-nav2="research" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Research</a>
+      <a href="#systems" data-nav2="systems" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Systems</a>
+      <a href="#writing" data-nav2="writing" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Writing</a>
+      <a href="#experience" data-nav2="experience" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Experience</a>
+      <a href="#press" data-nav2="press" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Press</a>
+      <a href="#education" data-nav2="education" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Education</a>
+      <a href="#contact" data-nav2="contact" style="flex:0 0 auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); border-bottom:none; padding:3px 0 4px; box-shadow:inset 0 -1px 0 rgba(30,28,25,0); transition:color 360ms ease, box-shadow 360ms ease">Contact</a>
+    </div>
+  </nav>
+
+  <main data-main="" style="max-width:1220px; margin:0 auto; padding:0 56px 0 300px; box-sizing:border-box">
+
+    <section id="index" style="padding:132px 0 118px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:center; gap:16px; margin-bottom:38px">
+        <img src="https://www.srirams.dev/media/profilepic.jpg" alt="Sriram Selvam" width="52" height="52" style="width:52px; height:52px; border-radius:50%; object-fit:cover; display:block; box-shadow:0 0 0 1px rgba(30,28,25,0.12), 0 0 0 5px var(--paper,#FCFAF5), 0 0 0 6px rgba(30,28,25,0.07)" />
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3,#6E6A62); line-height:1.7">Redmond, Washington<br />Microsoft AI</div>
+      </div>
+
+      <h1 data-reveal="" data-delay="90" style="transition:opacity 1000ms cubic-bezier(.2,.7,.2,1), transform 1000ms cubic-bezier(.2,.7,.2,1); margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:500; font-size:clamp(52px,6.6vw,84px); line-height:1.03; letter-spacing:-0.028em; color:#1E1C19">Sriram Selvam</h1>
+
+      <div data-reveal="" data-delay="180" style="transition:opacity 1000ms cubic-bezier(.2,.7,.2,1), transform 1000ms cubic-bezier(.2,.7,.2,1); margin-top:26px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11.5px; letter-spacing:0.13em; text-transform:uppercase; color:#57534C">
+        <span style="color:#9A4A2C">Agentic AI for Search</span>
+        <span style="color:rgba(30,28,25,0.25)">/</span>
+        <span>Senior Software Engineer, Microsoft AI</span>
+        <span style="color:rgba(30,28,25,0.25)">/</span>
+        <span>Independent Researcher</span>
+      </div>
+
+      <div data-reveal="" data-delay="270" style="transition:opacity 1000ms cubic-bezier(.2,.7,.2,1), transform 1000ms cubic-bezier(.2,.7,.2,1); margin-top:44px; max-width:660px">
+        <p style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:var(--fs-hero,22px); line-height:1.58; letter-spacing:-0.004em; color:var(--ink,#1E1C19); text-wrap:pretty">I build agentic AI systems for search; the orchestration, retrieval, tool-use and evidence layers that decide how an AI response is put together and what response is actually made of.</p>
+        <p style="margin:0 0 20px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-lead,17.5px); line-height:var(--lh-body,1.75); color:var(--ink-2,#57534C); text-wrap:pretty">At Microsoft AI I was one of the founding engineers on Bing&rsquo;s Generative Search result framework, and I&rsquo;ve since worked across Search Mode on Copilot, Copilot Search, Creator and the enrichment engines underneath them; most recently I lead engineering efforts for Bing QnA along with my team. Fifteen years of building systems that have to stay correct at a scale where nobody can check them by hand.</p>
+        <p style="margin:0; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-lead,17.5px); line-height:var(--lh-body,1.75); color:var(--ink-2,#57534C); text-wrap:pretty">Outside of work I publish on how the search result changes what an agent decides to do next, short comings in evaluation protocols that are commonly used, and on what language models quietly memorize along the way.</p>
+      </div>
+    </section>
+
+    <section id="research" style="padding:24px 0 110px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:8px">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">02</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Research</h2>
+        <span style="margin-left:auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">Agent retrieval, memory &amp; privacy</span>
+      </div>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:5px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#1E1C19">Jul 2026</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">arXiv:2607.10198</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">cs.CL</div>
+          <div style="margin-top:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:10px">Fig. 01</div>
+            <div style="display:flex; flex-direction:column; gap:5px">
+              <div style="height:2px; width:100%; background:#9A4A2C"></div>
+              <div style="height:2px; width:80%; background:#9A4A2C"></div>
+              <div style="height:2px; width:62%; background:rgba(30,28,25,0.22)"></div>
+              <div style="height:2px; width:47%; background:rgba(30,28,25,0.22)"></div>
+              <div style="height:2px; width:33%; background:rgba(30,28,25,0.22)"></div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:10px; line-height:1.5">Ranked pre-fetch<br />surface</div>
+          </div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19; text-wrap:pretty">Equal Accuracy, Unequal Evidence: Search APIs as Decision Surfaces for Tool-Using Agents</h3>
+<p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">A search API is usually judged on one number: did the agent eventually get the answer right. That hides the part that actually costs something. Before any page is opened, the agent sees only ranked snippets, URLs and metadata and that surface alone decides whether it answers now, searches again, or spends thousands of tokens fetching. We argue the API is better understood as a <em style="font-style:italic; color:#1E1C19">decision surface</em>, and measure it there: two providers can post identical accuracy while handing the agent very different evidence.</p>
+<div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://arxiv.org/abs/2607.10198" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">arXiv ↗</a>
+            <a href="https://arxiv.org/pdf/2607.10198" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">PDF ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:5px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#1E1C19">Jul 2026</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">arXiv:2607.10626</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">cs.CL</div>
+          <div style="margin-top:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:10px">Fig. 02</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px; width:72px">
+                <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+                <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+            </div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:10px; line-height:1.5">Judge &times; generator<br />self-leniency</div>
+          </div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19; text-wrap:pretty">Eval-Pair Matrix: Answer-Paired Meta-Evaluation of LLM Judges for Grounded RAG</h3>
+<p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">It is now common practice to use model as a judge for retrieval-augmented generation, sometimes a model from the same family that wrote the answer. That arrangement makes self-leniency nearly impossible to see. Eval-Pair Matrix is a controlled meta-evaluation protocol for source-grounded RAG that pairs every answer across judges, so the bias a family shows toward its own output becomes a number you can read off the diagonal.</p>
+<div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://arxiv.org/abs/2607.10626" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">arXiv ↗</a>
+            <a href="https://arxiv.org/pdf/2607.10626" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">PDF ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:5px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#1E1C19">Jun 2026</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">arXiv:2606.26403</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">cs.CL</div>
+          <div style="margin-top:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:10px">Fig. 03</div>
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:5px; width:96px">
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:#9A4A2C"></span>
+              <span style="display:block; width:100%; padding-bottom:100%; background:rgba(30,28,25,0.2)"></span>
+            </div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:10px; line-height:1.5">Person &times; object<br />substrate</div>
+          </div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19; text-wrap:pretty">ProfileFoundry: A Synthetic Person-Object Substrate for Privacy, Memory and Tool-Use Evaluation in LLM Agents</h3>
+<p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">After carefully reviewing the usage of our work with PANORAMA in real world, we realized that the profile generation work by itslef has been valuable to so many. We enhanced our profile generation framework and produced ProfileFoundry, a shared substrate that is, internally consistent synthetic people, and the objects that accumulate around a person, accounts, documents, transactions  so the same agent can be probed for what it leaks, what it retains and what it reaches for.</p>
+<div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://arxiv.org/abs/2606.26403" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">arXiv ↗</a>
+            <a href="https://arxiv.org/pdf/2606.26403" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">PDF ↗</a>
+            <a href="https://huggingface.co/datasets/srirxml/ProfileFoundry-Synthetic-Person-Objects" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Hugging Face ↗</a>
+            <a href="https://pypi.org/project/profilefoundry/" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">PyPI ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:5px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#1E1C19">May 2025</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">arXiv:2505.12238</div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:7px">CC BY 4.0</div>
+          <div style="margin-top:20px">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:10px">Fig. 04</div>
+            <div style="display:flex; align-items:flex-end; gap:10px">
+              <div style="display:flex; flex-direction:column; align-items:center; gap:6px">
+                <div style="width:12px; height:7px; background:rgba(30,28,25,0.22)"></div>
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:9.5px; color:var(--ink-3,#6E6A62); white-space:nowrap">1&times;</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:6px">
+                <div style="width:12px; height:15px; background:rgba(30,28,25,0.32)"></div>
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:9.5px; color:var(--ink-3,#6E6A62); white-space:nowrap">5&times;</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:6px">
+                <div style="width:12px; height:25px; background:rgba(154,74,44,0.55)"></div>
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:9.5px; color:var(--ink-3,#6E6A62); white-space:nowrap">10&times;</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:6px">
+                <div style="width:12px; height:40px; background:#9A4A2C"></div>
+                <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:9.5px; color:var(--ink-3,#6E6A62); white-space:nowrap">25&times;</span>
+              </div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.08em; color:var(--ink-3,#6E6A62); margin-top:10px; line-height:1.5">Memorisation vs.<br />replication rate</div>
+          </div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19; text-wrap:pretty">PANORAMA: A Synthetic PII-Laced Dataset for Studying Sensitive Data Memorisation in LLMs</h3>
+<p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">You cannot study what a model memorises about real people without endangering real people. PANORAMA is the way around that: a corpus built from internally consistent synthetic profiles, rendered into the formats personal information actually arrives in online — posts, reviews, wiki entries, listings. Fine-tuning Mistral-7B at rising replication rates shows memorisation climbing with repetition, and climbing at different speeds depending on the kind of page the information lived on.</p>
+<div style="display:flex; flex-wrap:wrap; gap:8px 20px; margin-bottom:18px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">
+            <span><span style="color:#1E1C19">384,789</span> samples</span>
+            <span style="color:rgba(30,28,25,0.2)">/</span>
+            <span><span style="color:#1E1C19">9,674</span> profiles</span>
+            <span style="color:rgba(30,28,25,0.2)">/</span>
+            <span>1× → 25× replication</span>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://arxiv.org/abs/2505.12238" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">arXiv ↗</a>
+            <a href="https://huggingface.co/datasets/srirxml/PANORAMA-Plus" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Dataset ↗</a>
+            <a href="https://github.com/selvamsriram/PANORAMA-DataGen" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <div data-row="" data-reveal="" data-delay="60" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:26px 0 0">
+        <div data-meta-col="" style="flex:0 0 128px"></div>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">More research under double-blind review</div>
+      </div>
+    </section>
+
+    <section id="systems" style="padding:24px 0 110px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:8px">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">03</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Systems</h2>
+        <span style="margin-left:auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">Shipped at Microsoft</span>
+      </div>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" data-system-meta="" style="flex:0 0 128px; padding-top:6px">
+          <span data-system-mark="" aria-hidden="true"><img data-system-logo="copilot" src="../media/copilot-color.svg" alt="" /></span>
+          <div style="display:inline-flex; align-items:center; gap:7px"><span style="width:5px; height:5px; border-radius:50%; background:#9A4A2C; display:block"></span><span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A2C">Live</span></div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 14px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19">Search Mode on Copilot</h3>
+          <p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">Search mode gives Copilot answers prominent, checkable citations. I lead the navigational side of it — making sure that when Copilot hands you a link, the URL is safe, valid and worth clicking. That means treating the open web as hostile input: Bing&rsquo;s safety signals plus our own defences against prompt injection. My team and I built the backend service behind it.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://copilot.microsoft.com/?chat-mode=cs" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Try it ↗</a>
+            <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/11/07/bringing-the-best-of-ai-search-to-copilot/" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Announcement ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" data-system-meta="" style="flex:0 0 128px; padding-top:6px">
+          <span data-system-mark="" aria-hidden="true"><img data-system-logo="copilot" src="../media/copilot-color.svg" alt="" /></span>
+          <div style="display:inline-flex; align-items:center; gap:7px"><span style="width:5px; height:5px; border-radius:50%; background:#9A4A2C; display:block"></span><span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A2C">Live</span></div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 14px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19">Copilot Search in Bing</h3>
+          <p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">Generated text is a poor answer to &ldquo;what does this look like&rdquo; or &ldquo;show me.&rdquo; I work on the enrichment side: deciding when an answer card, a video or an image belongs beside the model&rsquo;s prose, and building the online engine that assembles it. It serves millions of people a day, which is a good discipline — every heuristic gets found out.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://www.bing.com/copilotsearch?q=What%20is%20copilot%20search%20in%20Bing&amp;FORM=CSSCOP" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Try it ↗</a>
+            <a href="https://blogs.bing.com/search/April-2025/Introducing-Copilot-Search-in-Bing" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Announcement ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" data-system-meta="" style="flex:0 0 128px; padding-top:6px">
+          <span data-system-mark="" aria-hidden="true"><img data-system-logo="bing" src="../media/bing.svg" alt="" /></span>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">Founding work</div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 14px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19">Bing Generative Search</h3>
+          <p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">A whole result page, composed rather than ranked: the query is understood, millions of sources are reviewed, and the layout is generated to fit the intent. I was one of the founding engineers on the result-generation framework — enrichment retrieval, RAG-based pairing, and the LLM-driven evaluation that told us whether any of it was working. The pipeline has since generated millions of enriched pages.</p>
+          <div style="display:flex; align-items:center; gap:12px; padding:14px 18px; background:var(--panel,#F4F1E9); border-left:2px solid #9A4A2C; margin-bottom:20px">
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#9A4A2C">Patent granted</span>
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11.5px; letter-spacing:0.06em; color:#1E1C19">US 12,602,388 B2</span>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://blogs.bing.com/search/July-2024/generativesearch" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Announcement ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" data-system-meta="" style="flex:0 0 128px; padding-top:6px">
+          <span data-system-mark="" aria-hidden="true"><img data-system-logo="bing" src="../media/bing.svg" alt="" /></span>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">Earlier</div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 14px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:26px; line-height:1.28; letter-spacing:-0.012em; color:#1E1C19">Creator &amp; Code Assist</h3>
+          <p style="margin:0 0 18px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-body,17px); line-height:var(--lh-body,1.74); color:var(--ink-2,#57534C); text-wrap:pretty">Tailored responses for writing, stories and code without asking people to become prompt engineers. I built the prompt templating engine underneath it and assembled the customisation panel — the controls that let a reader dial tone, length and creativity and actually feel the difference.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+            <a href="https://www.bing.com/search?pglt=417&amp;q=write+a+story+for+my+3+yo" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Writing ↗</a>
+            <a href="https://www.bing.com/search?q=python%20code%20for%20tree%20traversal%20when%20viewed%20from%20top%20to%20bottom" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Coding ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="60" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:40px 0 0">
+        <div data-meta-col="" data-system-meta="" style="flex:0 0 128px; padding-top:6px">
+          <span data-system-mark="" aria-hidden="true"><img data-system-logo="cafe" src="../media/CafeScribble-Logo.png" alt="" /></span>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">Aside</div>
+        </div>
+        <div style="flex:1 1 auto; max-width:640px; display:flex; gap:16px; align-items:flex-start">
+          <div>
+            <h3 style="margin:0 0 10px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:19px; line-height:1.3; color:#1E1C19">Cafe Scribble</h3>
+            <p style="margin:0 0 14px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.72); color:var(--ink-2,#57534C); text-wrap:pretty">A minimal note-taking app that writes straight to a GitHub repo — built over a weekend to see how far vibe-coding could get. Free, open source, and quietly the thing I use most.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase">
+              <a href="https://www.cafescribble.app/" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Open ↗</a>
+              <a href="https://github.com/selvamsriram/CafeScribble" target="_blank" rel="noopener" style="color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="writing" style="padding:24px 0 110px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:0">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">04</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Writing</h2>
+        <span style="margin-left:auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">LLM Everything</span>
+      </div>
+
+      <a data-row="" href="https://medium.com/llm-everything/running-language-models-locally-a-beginners-guide-cfd645e7d08b" target="_blank" rel="noopener" data-reveal="" data-delay="40" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:30px 0; border-bottom:1px solid rgba(30,28,25,0.1); border-left:none; border-right:none; border-top:none; color:inherit; transition:transform 460ms cubic-bezier(.2,.7,.2,1)" data-hover="transform:translateX(7px)">
+        <div data-meta-col="" style="flex:0 0 128px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3,#6E6A62); padding-top:6px">Feb 2025<br /><span style="color:#9A4A2C">Guide</span></div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 8px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:21px; line-height:1.34; color:#1E1C19">Running language models locally</h3>
+          <p style="margin:0; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.7); color:var(--ink-2,#57534C); text-wrap:pretty">What it actually takes to get a capable model running on your own machine, and why you might want to.</p>
+        </div>
+        <div style="flex:0 0 auto; align-self:center; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:13px; color:#9A4A2C">↗</div>
+      </a>
+
+      <a data-row="" href="https://medium.com/llm-everything/does-chatgpts-memory-contain-pii-8401bee9e1ce" target="_blank" rel="noopener" data-reveal="" data-delay="40" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:30px 0; border-bottom:1px solid rgba(30,28,25,0.1); border-left:none; border-right:none; border-top:none; color:inherit; transition:transform 460ms cubic-bezier(.2,.7,.2,1)" data-hover="transform:translateX(7px)">
+        <div data-meta-col="" style="flex:0 0 128px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3,#6E6A62); padding-top:6px">Feb 2025<br /><span style="color:#9A4A2C">Research</span></div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 8px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:21px; line-height:1.34; color:#1E1C19">Does ChatGPT&rsquo;s memory contain PII?</h3>
+          <p style="margin:0; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.7); color:var(--ink-2,#57534C); text-wrap:pretty">Yes. It won&rsquo;t volunteer it — but alignment is a lock, not a wall, and specialised attacks can pick it.</p>
+        </div>
+        <div style="flex:0 0 auto; align-self:center; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:13px; color:#9A4A2C">↗</div>
+      </a>
+
+      <a data-row="" href="https://medium.com/llm-everything/how-well-does-llm-remember-things-67d076efff26" target="_blank" rel="noopener" data-reveal="" data-delay="40" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:30px 0; border-bottom:1px solid rgba(30,28,25,0.1); border-left:none; border-right:none; border-top:none; color:inherit; transition:transform 460ms cubic-bezier(.2,.7,.2,1)" data-hover="transform:translateX(7px)">
+        <div data-meta-col="" style="flex:0 0 128px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3,#6E6A62); padding-top:6px">Jan 2025<br /><span style="color:#9A4A2C">Research</span></div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 8px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:21px; line-height:1.34; color:#1E1C19">What makes an LLM memorise things?</h3>
+          <p style="margin:0; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.7); color:var(--ink-2,#57534C); text-wrap:pretty">The kinds of memorisation, and the early attempts to measure how much of it is sitting in off-the-shelf models.</p>
+        </div>
+        <div style="flex:0 0 auto; align-self:center; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:13px; color:#9A4A2C">↗</div>
+      </a>
+
+      <div data-row="" data-reveal="" data-delay="40" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:26px 0 0">
+        <div data-meta-col="" style="flex:0 0 128px"></div>
+        <a href="https://medium.com/llm-everything" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">All essays on Medium ↗</a>
+      </div>
+    </section>
+
+    <section id="experience" style="padding:24px 0 110px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:0">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">05</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Experience</h2>
+        <span style="margin-left:auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">Fourteen years</span>
+      </div>
+
+      <article data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:38px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:6px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:#1E1C19; line-height:1.8">2020 —<br /><span style="color:#9A4A2C">Present</span></div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 4px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:23px; line-height:1.3; color:#1E1C19">Microsoft</h3>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-bottom:18px">Senior Software Engineer · Copilot Search, Generative Search, Bing QnA</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.68); color:var(--ink-2,#57534C)">
+            <div>Designed the candidate-collection and enrichment-selection framework that decides what ships alongside generated text in Copilot Search.</div>
+            <div>Most recently, lead grounding for Bing QnA — evidence selection, source quality and the defences that keep hostile pages out of an answer.</div>
+            <div>Built the offline GPT data-generation engine behind millions of Bing Generative Search result pages; patent granted.</div>
+            <div>Built the dynamic prompt system and customisation panel for Creator &amp; Personas, extending it into coding and productivity — engaged DAU grew 15×.</div>
+            <div>Enriched Bing&rsquo;s Satori knowledge graph with GPT-4 for entity refinement tabs and seasonal shopping experiences, without disturbing ranking logic.</div>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:38px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:6px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:#1E1C19; line-height:1.8">2013 —<br />2018</div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 4px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:23px; line-height:1.3; color:#1E1C19">IP Infusion</h3>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-bottom:18px">Technical Lead Engineer</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.68); color:var(--ink-2,#57534C)">
+            <div>Led the team implementing PCEP (RFC 8281 / 8231) for Ciena&rsquo;s SDN MPLS tunnels.</div>
+            <div>Built BGP Labelled Unicast by unifying IP and MPLS routes — Best Individual Contributor award.</div>
+            <div>Implemented IP Fast Reroute in IS-IS with zero traffic loss, and cut TRILL convergence from 500ms to 5ms for a Fujitsu deployment in Japan.</div>
+            <div>Delivered full VRF support across SSH, Telnet and Syslog on Debian, which helped win the Apple evaluation.</div>
+          </div>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:38px 0 0">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:6px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:#1E1C19; line-height:1.8">2011 —<br />2013</div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 4px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:23px; line-height:1.3; color:#1E1C19">Aricent</h3>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-bottom:18px">Software Engineer</div>
+          <div style="display:flex; flex-direction:column; gap:11px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.68); color:var(--ink-2,#57534C)">
+            <div>Switching features for Sumitomo Electric&rsquo;s EPON OLT, deployed in Japan&rsquo;s broadband infrastructure and by Time Warner Cable.</div>
+            <div>IS-IS routing work in Aricent&rsquo;s Intelligent Switching Solution.</div>
+          </div>
+        </div>
+      </article>
+    </section>
+<section id="press" style="padding:24px 0 110px; scroll-margin-top:80px">
+        <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:36px">
+          <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">06</span>
+          <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Press</h2>
+          <span style="margin-left:auto; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.1em; color:var(--ink-3,#6E6A62)">Coverage of work I contributed to</span>
+        </div>
+
+        <div data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:rgba(30,28,25,0.13); border-top:1px solid rgba(30,28,25,0.13); border-bottom:1px solid rgba(30,28,25,0.13)">
+          <a href="https://techcrunch.com/2024/10/01/microsoft-brings-ai-powered-overviews-to-bing/" target="_blank" rel="noopener" style="background:var(--paper,#FCFAF5); padding:30px 32px 28px; border:none; color:inherit; display:block; transition:background-color 400ms ease" data-hover="background:var(--panel,#F4F1E9)">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:14px">TechCrunch</div>
+            <p style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-style:italic; font-size:var(--fs-body,17px); line-height:1.62; color:var(--ink,#1E1C19); text-wrap:pretty; text-indent:-0.42em">&ldquo;Microsoft has launched its answer to Google&rsquo;s AI-powered search experiences: Bing generative search.&rdquo;</p>
+          </a>
+          <a href="https://www.pcmag.com/news/copilot-search-i-tried-microsofts-new-ai-answer-tool-and-you-can-too" target="_blank" rel="noopener" style="background:var(--paper,#FCFAF5); padding:30px 32px 28px; border:none; color:inherit; display:block; transition:background-color 400ms ease" data-hover="background:var(--panel,#F4F1E9)">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:14px">PCMag</div>
+            <p style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-style:italic; font-size:var(--fs-body,17px); line-height:1.62; color:var(--ink,#1E1C19); text-wrap:pretty; text-indent:-0.42em">&ldquo;Copilot Search will make you want to use Bing again.&rdquo;</p>
+          </a>
+          <a href="https://www.cnet.com/tech/services-and-software/microsoft-follows-google-with-generative-search-but-with-a-twist/" target="_blank" rel="noopener" style="background:var(--paper,#FCFAF5); padding:30px 32px 28px; border:none; color:inherit; display:block; transition:background-color 400ms ease" data-hover="background:var(--panel,#F4F1E9)">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:14px">CNET</div>
+            <p style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-style:italic; font-size:var(--fs-body,17px); line-height:1.62; color:var(--ink,#1E1C19); text-wrap:pretty; text-indent:-0.42em">&ldquo;Bing search engine is leaning further in to artificial intelligence, with a new test feature that summarizes search results.&rdquo;</p>
+          </a>
+          <a href="https://www.business-standard.com/technology/tech-news/microsoft-brings-copilot-ai-powered-web-search-mode-on-bing-how-it-works-125022500477_1.html" target="_blank" rel="noopener" style="background:var(--paper,#FCFAF5); padding:30px 32px 28px; border:none; color:inherit; display:block; transition:background-color 400ms ease" data-hover="background:var(--panel,#F4F1E9)">
+            <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#9A4A2C; margin-bottom:14px">Business Standard</div>
+            <p style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-style:italic; font-size:var(--fs-body,17px); line-height:1.62; color:var(--ink,#1E1C19); text-wrap:pretty; text-indent:-0.42em">&ldquo;Integrating artificial intelligence to enhance search results with more personalised and context-aware responses.&rdquo;</p>
+          </a>
+        </div>
+      </section>
+<section id="education" style="padding:24px 0 110px; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:0">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">07</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Education</h2>
+      </div>
+
+      <article data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:38px 0; border-bottom:1px solid rgba(30,28,25,0.1)">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:6px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">M.S. CS</div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 4px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:23px; line-height:1.3; color:#1E1C19">University of Utah</h3>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-bottom:16px">Flux Research Group · advised by Robert Ricci</div>
+          <p style="margin:0 0 14px; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.7); color:var(--ink-2,#57534C); text-wrap:pretty"><span style="color:#1E1C19">Switch-Assisted Peer to Peer</span> — a transfer protocol that puts programmable switches to work reducing trunk traffic inside data centres during multicast.</p>
+          <a href="https://www.flux.utah.edu/paper/selvam-thesis" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.12em; text-transform:uppercase; color:#9A4A2C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1)" data-hover="background-size:100% 1px">Thesis ↗</a>
+        </div>
+      </article>
+
+      <article data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; padding:38px 0 0">
+        <div data-meta-col="" style="flex:0 0 128px; padding-top:6px; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">B.E. CS</div>
+        <div style="flex:1 1 auto; max-width:640px">
+          <h3 style="margin:0 0 4px; font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:23px; line-height:1.3; color:#1E1C19">Anna University</h3>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.11em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-bottom:16px">Chennai</div>
+          <p style="margin:0; font-family:var(--ff-body,'Source Serif 4',Georgia,serif); font-weight:var(--fw-body,400); font-size:var(--fs-sm,16.5px); line-height:var(--lh-sm,1.7); color:var(--ink-2,#57534C); text-wrap:pretty">Led a group implementing real-time face detection with the Viola-Jones framework in MATLAB, tuned hard for latency so it could keep up with live video.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact" style="padding:24px 0 0; scroll-margin-top:80px">
+      <div data-reveal="" data-delay="0" style="transition:opacity 900ms cubic-bezier(.2,.7,.2,1), transform 900ms cubic-bezier(.2,.7,.2,1); display:flex; align-items:baseline; gap:20px; padding-bottom:16px; border-bottom:1px solid rgba(30,28,25,0.18); margin-bottom:44px">
+        <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:11px; letter-spacing:0.14em; color:#9A4A2C">08</span>
+        <h2 style="margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-weight:500; font-size:11.5px; letter-spacing:0.19em; text-transform:uppercase; color:#1E1C19">Contact</h2>
+      </div>
+
+      <div data-row="" data-reveal="" data-delay="50" style="transition:opacity 950ms cubic-bezier(.2,.7,.2,1), transform 950ms cubic-bezier(.2,.7,.2,1); display:flex; gap:44px; align-items:flex-start; flex-wrap:wrap">
+        <div style="flex:1 1 380px; max-width:560px">
+          <p style="margin:0 0 28px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:24px; line-height:1.5; letter-spacing:-0.006em; color:#1E1C19; text-wrap:pretty">If you&rsquo;re building agentic systems for search — retrieval, tool use, or how an agent decides what evidence to trust — I&rsquo;d genuinely like to hear from you.</p>
+          <a href="mailto:selvamsriram@gmail.com" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:13px; letter-spacing:0.06em; color:#9A4A2C; border-bottom:1px solid rgba(154,74,44,0.4)">selvamsriram@gmail.com</a>
+        </div>
+        <div style="flex:0 0 200px; display:flex; flex-direction:column; gap:12px; padding-top:8px">
+          <a href="https://www.linkedin.com/in/sriramselvam/" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#57534C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1), color 300ms ease" data-hover="background-size:100% 1px; color:#9A4A2C">LinkedIn ↗</a>
+          <a href="https://github.com/selvamsriram" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#57534C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1), color 300ms ease" data-hover="background-size:100% 1px; color:#9A4A2C">GitHub ↗</a>
+          <a href="https://arxiv.org/search/?searchtype=author&amp;query=Selvam%2C+Sriram" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#57534C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1), color 300ms ease" data-hover="background-size:100% 1px; color:#9A4A2C">arXiv ↗</a>
+          <a href="https://huggingface.co/datasets/srirxml/PANORAMA-Plus" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#57534C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1), color 300ms ease" data-hover="background-size:100% 1px; color:#9A4A2C">Hugging Face ↗</a>
+          <a href="https://www.srirams.dev/media/SriramSelvamResumeJan2025.pdf" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:var(--fs-meta,10.5px); letter-spacing:0.13em; text-transform:uppercase; color:#57534C; border-bottom:none; padding-bottom:2px; background-image:linear-gradient(#9A4A2C,#9A4A2C); background-repeat:no-repeat; background-position:0 100%; background-size:0 1px; transition:background-size 460ms cubic-bezier(.2,.7,.2,1), color 300ms ease" data-hover="background-size:100% 1px; color:#9A4A2C">Résumé, PDF ↗</a>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:24px; flex-wrap:wrap; margin-top:96px; padding:22px 0 40px; border-top:1px solid rgba(30,28,25,0.14); font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-3,#6E6A62)">
+        <span>© 2026 Sriram Selvam</span>
+        <span>Set in Source Serif 4 &amp; IBM Plex Mono</span>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-theme-bar="" style="position:fixed; right:26px; bottom:22px; z-index:40; display:flex; flex-wrap:wrap; justify-content:flex-end; max-width:calc(100vw - 52px); align-items:center; gap:9px; padding:9px 13px; background:var(--panel,#F4F1E9); border:1px solid rgba(30,28,25,0.13); box-shadow:0 8px 28px rgba(30,28,25,0.08)">
+    <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-3,#6E6A62); margin-right:3px">Paper</span>
+    <button data-swatch="warm" data-paper="#F7F4EE" data-panel="#F1EDE5" title="Warm" style="width:20px; height:20px; padding:0; border:1px solid rgba(30,28,25,0.22); border-radius:50%; background:#F7F4EE; cursor:pointer; display:block; transition:box-shadow 220ms ease, transform 220ms ease"></button>
+    <button data-swatch="ivory" data-paper="#FCFAF5" data-panel="#F4F1E9" title="Ivory" style="width:20px; height:20px; padding:0; border:1px solid rgba(30,28,25,0.22); border-radius:50%; background:#FCFAF5; cursor:pointer; display:block; transition:box-shadow 220ms ease, transform 220ms ease"></button>
+    <button data-swatch="chalk" data-paper="#FBFBF9" data-panel="#F1F1EE" title="Chalk" style="width:20px; height:20px; padding:0; border:1px solid rgba(30,28,25,0.22); border-radius:50%; background:#FBFBF9; cursor:pointer; display:block; transition:box-shadow 220ms ease, transform 220ms ease"></button>
+    <button data-swatch="cool" data-paper="#F2F3F1" data-panel="#E9EBE8" title="Cool grey" style="width:20px; height:20px; padding:0; border:1px solid rgba(30,28,25,0.22); border-radius:50%; background:#F2F3F1; cursor:pointer; display:block; transition:box-shadow 220ms ease, transform 220ms ease"></button>
+    <button data-swatch="sand" data-paper="#F0EADD" data-panel="#E6DFD0" title="Sand" style="width:20px; height:20px; padding:0; border:1px solid rgba(30,28,25,0.22); border-radius:50%; background:#F0EADD; cursor:pointer; display:block; transition:box-shadow 220ms ease, transform 220ms ease"></button>
+    <div style="width:1px; height:18px; background:rgba(30,28,25,0.18); margin:0 4px"></div>
+    <div style="display:flex; gap:2px">
+      <button data-read-set="current" title="Book — original serif" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 7px; border:none; border-radius:2px; background:transparent; color:#57534C; cursor:pointer">Book</button>
+      <button data-read-set="large" title="Large — bigger, darker serif" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 7px; border:none; border-radius:2px; background:transparent; color:#57534C; cursor:pointer">Large</button>
+      <button data-read-set="sans" title="Sans — humanist sans body" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 7px; border:none; border-radius:2px; background:transparent; color:#57534C; cursor:pointer">Sans</button>
+      <button data-read-set="dark" title="Dark — heavier, near-black serif" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 7px; border:none; border-radius:2px; background:transparent; color:#57534C; cursor:pointer">Dark</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  const root = document.documentElement;
+  const page = document.querySelector('[data-page]');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const storage = {
+    get(key) {
+      try { return window.localStorage.getItem(key); } catch (error) { return null; }
+    },
+    set(key, value) {
+      try { window.localStorage.setItem(key, value); } catch (error) { /* Preferences are optional. */ }
+    }
+  };
+
+  const reveal = (element, instant = false) => {
+    element.dataset.revealed = 'true';
+    if (instant) element.style.transition = 'none';
+    element.style.opacity = '1';
+    element.style.transform = 'none';
+  };
+
+  const revealElements = Array.from(document.querySelectorAll('[data-reveal]'));
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach(element => reveal(element, true));
+  } else {
+    revealElements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(16px)';
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const delay = Number.parseInt(entry.target.dataset.delay || '0', 10);
+        window.setTimeout(() => reveal(entry.target), delay);
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+
+    revealElements.forEach(element => revealObserver.observe(element));
+    window.setTimeout(() => {
+      revealElements.filter(element => !element.dataset.revealed).forEach(element => reveal(element, true));
+    }, 3000);
+  }
+
+  const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+  const narrowLinks = Array.from(document.querySelectorAll('[data-nav2]'));
+  const sections = navLinks
+    .map(link => ({ link, section: document.getElementById(link.dataset.nav) }))
+    .filter(item => item.section);
+  let activeSectionId = '';
+  let scrollFrame = 0;
+
+  const paintNavigation = (activeSection, progress) => {
+    sections.forEach(({ link, section }) => {
+      const active = section === activeSection;
+      const rule = link.querySelector('[data-nav-rule]');
+      const label = link.querySelector('[data-nav-label]');
+      link.setAttribute('aria-current', active ? 'location' : 'false');
+      if (rule) {
+        rule.style.width = active ? `${(12 + (26 * progress)).toFixed(1)}px` : '12px';
+        rule.style.backgroundColor = active ? '#9A4A2C' : 'rgba(30,28,25,0.28)';
+      }
+      if (label) label.style.color = active ? '#1E1C19' : '#6E6A62';
+    });
+
+    const nextId = activeSection ? activeSection.id : '';
+    narrowLinks.forEach(link => {
+      const active = link.dataset.nav2 === nextId;
+      link.setAttribute('aria-current', active ? 'location' : 'false');
+      link.style.color = active ? '#9A4A2C' : '#6E6A62';
+      link.style.boxShadow = `inset 0 -1px 0 ${active ? '#9A4A2C' : 'transparent'}`;
+    });
+
+    if (nextId !== activeSectionId) {
+      const activeNarrowLink = narrowLinks.find(link => link.dataset.nav2 === nextId);
+      const scroller = activeNarrowLink && activeNarrowLink.parentElement;
+      if (activeNarrowLink && scroller && window.innerWidth < 1060) {
+        const target = activeNarrowLink.offsetLeft - ((scroller.clientWidth - activeNarrowLink.offsetWidth) / 2);
+        scroller.scrollTo({ left: Math.max(0, target), behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+      activeSectionId = nextId;
+    }
+  };
+
+  const updateNavigation = () => {
+    scrollFrame = 0;
+    if (!sections.length) return;
+    const probe = window.scrollY + (window.innerHeight * 0.28);
+    let activeIndex = 0;
+    sections.forEach(({ section }, index) => {
+      if (section.offsetTop <= probe) activeIndex = index;
+    });
+    const active = sections[activeIndex];
+    const next = sections[activeIndex + 1];
+    const end = next ? next.section.offsetTop : document.documentElement.scrollHeight;
+    const progress = Math.min(1, Math.max(0, (probe - active.section.offsetTop) / Math.max(1, end - active.section.offsetTop)));
+    paintNavigation(active.section, progress);
+  };
+
+  const scheduleNavigationUpdate = () => {
+    if (scrollFrame) return;
+    scrollFrame = window.requestAnimationFrame(updateNavigation);
+  };
+
+  window.addEventListener('scroll', scheduleNavigationUpdate, { passive: true });
+  window.addEventListener('resize', scheduleNavigationUpdate);
+  updateNavigation();
+
+  const swatches = Array.from(document.querySelectorAll('[data-swatch]'));
+  const applyPaper = (id, persist = true) => {
+    const selected = swatches.find(button => button.dataset.swatch === id) || swatches.find(button => button.dataset.swatch === 'ivory');
+    if (!selected) return;
+    const paper = selected.dataset.paper;
+    root.style.setProperty('--paper', paper);
+    root.style.setProperty('--panel', selected.dataset.panel);
+    if (themeMeta) themeMeta.content = paper;
+    swatches.forEach(button => {
+      const active = button === selected;
+      button.setAttribute('aria-pressed', String(active));
+      button.style.boxShadow = active ? '0 0 0 1.5px #1E1C19' : 'none';
+      button.style.transform = active ? 'scale(1.06)' : 'none';
+    });
+    if (persist) storage.set('srirams-paper-v2', selected.dataset.swatch);
+  };
+
+  swatches.forEach(button => {
+    button.type = 'button';
+    button.setAttribute('aria-label', `${button.title} paper theme`);
+    button.addEventListener('click', () => applyPaper(button.dataset.swatch));
+  });
+  applyPaper(storage.get('srirams-paper-v2') || 'ivory', false);
+
+  const readButtons = Array.from(document.querySelectorAll('[data-read-set]'));
+  const applyReadMode = (id, persist = true) => {
+    const validId = readButtons.some(button => button.dataset.readSet === id) ? id : 'current';
+    if (page) page.dataset.read = validId;
+    readButtons.forEach(button => {
+      const active = button.dataset.readSet === validId;
+      button.setAttribute('aria-pressed', String(active));
+      button.style.background = active ? 'rgba(154,74,44,0.12)' : 'transparent';
+      button.style.color = active ? '#9A4A2C' : '#57534C';
+    });
+    if (persist) storage.set('srirams-read-v2', validId);
+  };
+
+  readButtons.forEach(button => {
+    button.type = 'button';
+    button.addEventListener('click', () => applyReadMode(button.dataset.readSet));
+  });
+  applyReadMode(storage.get('srirams-read-v2') || 'current', false);
+})();
+</script>
+</body>
+</html>
