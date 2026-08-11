@@ -133,7 +133,14 @@ const profileNavigation = ({ depth = 1, currentArticle = null } = {}) => {
         ${currentArticle ? `<a class="rail-sub-link rail-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}"><span>${htmlEscape(currentArticle.title)}</span></a>` : ''}
       </div>`;
   const narrowWritingTree = `<a class="narrow-context-link${currentArticle ? ' is-ancestor' : ' is-active'}" href="${allWritingPath}"${currentArticle ? '' : ' aria-current="page"'}>All writing</a>
-    ${currentArticle ? `<a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}">${htmlEscape(currentArticle.title)}</a>` : ''}`;
+    ${currentArticle ? `<a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}">${htmlEscape(currentArticle.title)}</a>
+    <button type="button" class="narrow-context-link narrow-essay-toggle" data-essay-menu-toggle aria-expanded="false" aria-controls="essay-navigation"><span>In this essay</span><span aria-hidden="true">+</span></button>` : ''}`;
+  const narrowEssayPanel = currentArticle ? `<div class="narrow-essay-panel" data-essay-menu id="essay-navigation" hidden>
+    <div class="narrow-essay-panel-inner">
+      <div class="narrow-essay-panel-heading"><span>In this essay</span><button type="button" data-essay-menu-close aria-label="Close article navigation">Close</button></div>
+      <div class="narrow-essay-links" data-article-toc-narrow role="group" aria-label="Article sections"></div>
+    </div>
+  </div>` : '';
   return `<nav class="profile-rail" data-profile-rail aria-label="Portfolio navigation">
   <div data-reveal data-delay="120">
     <a class="rail-name" href="${homePath}">Sriram Selvam</a>
@@ -147,7 +154,7 @@ const profileNavigation = ({ depth = 1, currentArticle = null } = {}) => {
 <nav class="profile-nav-narrow" data-nav-narrow aria-label="Portfolio navigation">
   <div class="profile-nav-scroll" data-nav-narrow-scroll>
     ${items.map((item) => `<a class="narrow-link${item.writingParent ? ' is-parent' : ''}" href="${item.href}">${item.label}</a>${item.writingParent ? `\n    ${narrowWritingTree}` : ''}`).join('\n    ')}
-  </div>
+  </div>${narrowEssayPanel ? `\n  ${narrowEssayPanel}` : ''}
   ${themeButton('compact')}
 </nav>`;
 };
@@ -179,11 +186,34 @@ const documentHead = ({ title, description, canonical, cssPath, type = 'website'
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="${cssPath.includes('../blog.css') ? '../../favicon.svg?v=2' : '../favicon.svg?v=2'}" type="image/svg+xml">
-  <link rel="stylesheet" href="${cssPath}?v=9">
+  <link rel="stylesheet" href="${cssPath}?v=14">
   <title>${htmlEscape(title)}</title>
 </head>`;
 
-const transformArticleContent = (article, localLinks) => {
+const imageDimensions = async (filePath) => {
+  const data = await readFile(filePath);
+  const isPng = data.length >= 24 && data.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  if (isPng) return { width: data.readUInt32BE(16), height: data.readUInt32BE(20) };
+  if (data.length >= 4 && data[0] === 0xff && data[1] === 0xd8) {
+    const startOfFrameMarkers = new Set([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf]);
+    let offset = 2;
+    while (offset + 8 < data.length) {
+      while (data[offset] === 0xff) offset += 1;
+      const marker = data[offset];
+      offset += 1;
+      if (marker === 0xd9 || marker === 0xda || offset + 2 > data.length) break;
+      const segmentLength = data.readUInt16BE(offset);
+      if (startOfFrameMarkers.has(marker)) {
+        return { width: data.readUInt16BE(offset + 5), height: data.readUInt16BE(offset + 3) };
+      }
+      if (segmentLength < 2) break;
+      offset += segmentLength;
+    }
+  }
+  return null;
+};
+
+const transformArticleContent = (article, localLinks, dimensionsBySource) => {
   let content = article.rawContent;
   article.images.forEach((source, index) => {
     const suffix = extname(new URL(source).pathname) || '.jpg';
@@ -198,9 +228,11 @@ const transformArticleContent = (article, localLinks) => {
     .replaceAll('<h4>', '<h3>')
     .replaceAll('</h4>', '</h3>')
     .replace(/<figure><img alt="" src="([^"]+)" \/><figcaption>([\s\S]*?)<\/figcaption><\/figure>/g, (_match, source, caption) => (
-      `<figure><img alt="${htmlEscape(plainText(caption))}" src="${source}" loading="lazy" /><figcaption>${caption}</figcaption></figure>`
+      `<figure><img alt="${htmlEscape(plainText(caption))}" src="${source}"${dimensionsBySource[source] ? ` width="${dimensionsBySource[source].width}" height="${dimensionsBySource[source].height}"` : ''} loading="lazy" decoding="async" /><figcaption>${caption}</figcaption></figure>`
     ))
-    .replace(/<img alt="" src="([^"]+)" \/>/g, '<img alt="" src="$1" loading="lazy" />')
+    .replace(/<img alt="" src="([^"]+)" \/>/g, (_match, source) => (
+      `<img alt="" src="${source}"${dimensionsBySource[source] ? ` width="${dimensionsBySource[source].width}" height="${dimensionsBySource[source].height}"` : ''} loading="lazy" decoding="async" />`
+    ))
     .replace(/<a href="https:\/\//g, '<a target="_blank" rel="noopener" href="https://');
   return content;
 };
@@ -234,7 +266,7 @@ const portfolioPageStart = ({ depth, bodyClass = '', currentArticle = null }) =>
 const portfolioPageEnd = ({ depth, scriptPath }) => `</main>
     ${siteFooter({ depth })}
   </div>
-  <script src="${scriptPath}?v=9"></script>
+  <script src="${scriptPath}?v=14"></script>
 </body>
 </html>`;
 
@@ -270,7 +302,7 @@ const articlePager = (article, label) => `<a class="pager-row" data-row href="..
   <span class="row-arrow" aria-hidden="true">→</span>
 </a>`;
 
-const renderArticle = (article, articles, localLinks) => {
+const renderArticle = (article, articles, localLinks, dimensionsBySource) => {
   const index = articles.indexOf(article);
   const newer = articles[index - 1];
   const older = articles[index + 1];
@@ -313,15 +345,15 @@ ${portfolioPageStart({ depth: 2, bodyClass: 'article-page', currentArticle: arti
           </div>
         </div>
       </header>
-      <div class="article-layout" data-row>
-        <aside class="article-aside" data-meta-col>
+      <div class="article-layout">
+        <aside class="article-aside" aria-label="Article navigation">
           <div class="aside-sticky">
             <span class="aside-label">In this essay</span>
-            <nav data-article-toc aria-label="Article sections"></nav>
+            <div data-article-toc role="group" aria-label="Article sections"></div>
           </div>
         </aside>
         <div class="article-body" id="article-body">
-          ${transformArticleContent(article, localLinks)}
+          ${transformArticleContent(article, localLinks, dimensionsBySource)}
         </div>
       </div>
       <footer class="article-source">
@@ -365,15 +397,6 @@ const updateHomepageLinks = async (articles) => {
     .replace(/\n<script data-writing-hash-navigation="">[\s\S]*?<\/script>/, '')
     .replace(/^\s*<a href="\/blog\/" data-blog-nav="rail".*<\/a>\n?/m, '')
     .replace(/^\s*<a href="\/blog\/" data-blog-nav="compact".*<\/a>\n?/m, '');
-
-  const homeRailWritingChild = `<div data-writing-tree-home="" style="display:flex; flex-direction:column; margin:2px 0 5px 31px">
-          <a href="/blog/" style="display:block; padding:5px 0; border-bottom:none; color:var(--ink-3,#51565E); font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:var(--fs-meta,10.5px); font-weight:500; line-height:1.4; letter-spacing:0.15em; text-transform:uppercase" style-hover="color:var(--accent,#0B57D0)">All writing</a>
-        </div>`;
-  const homeNarrowWritingChild = `<a href="/blog/" data-writing-context-home="" style="position:relative; flex:0 0 auto; padding:3px 0 4px 17px; border-bottom:none; color:var(--ink-3,#51565E); font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:var(--fs-meta,10.5px); font-weight:500; line-height:1.4; letter-spacing:0.11em; text-transform:uppercase">↳ All writing</a>`;
-
-  template = template
-    .replace(/(<a href="#writing" data-nav="writing"[\s\S]*?<\/a>)/, `$1\n        ${homeRailWritingChild}`)
-    .replace(/(<a href="#writing" data-nav2="writing"[\s\S]*?<\/a>)/, `$1\n      ${homeNarrowWritingChild}`);
 
   const homeHashNavigation = `<script data-writing-hash-navigation="">
 (() => {
@@ -421,7 +444,13 @@ const main = async () => {
   for (const article of articles) {
     const articleRoot = join(blogRoot, article.slug);
     await mkdir(articleRoot, { recursive: true });
-    await writeFile(join(articleRoot, 'index.html'), renderArticle(article, articles, localLinks));
+    const dimensionsBySource = {};
+    for (const [index, source] of article.images.entries()) {
+      const suffix = extname(new URL(source).pathname) || '.jpg';
+      const localSource = `../media/${article.postId}-${index + 1}${suffix}`;
+      dimensionsBySource[localSource] = await imageDimensions(join(blogRoot, 'media', `${article.postId}-${index + 1}${suffix}`));
+    }
+    await writeFile(join(articleRoot, 'index.html'), renderArticle(article, articles, localLinks, dimensionsBySource));
   }
 
   const imageManifest = articles.flatMap((article) => article.images.map((source, index) => {
