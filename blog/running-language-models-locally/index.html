@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Running Language Models Locally: A Beginner’s Guide — Sriram Selvam">
+  <meta property="og:description" content="Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.">
+  <meta property="og:url" content="https://www.srirams.dev/blog/running-language-models-locally/">
+  <meta property="og:image" content="https://www.srirams.dev/blog/media/cfd645e7d08b-1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.srirams.dev/blog/running-language-models-locally/">
+  <link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
+  <link rel="stylesheet" href="../blog.css?v=9">
+  <title>Running Language Models Locally: A Beginner’s Guide — Sriram Selvam</title>
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="profile-page" data-page="sriram">
+    <nav class="profile-rail" data-profile-rail aria-label="Portfolio navigation">
+  <div data-reveal data-delay="120">
+    <a class="rail-name" href="../../">Sriram Selvam</a>
+    <div class="rail-utilities" role="group" aria-label="Profile links and appearance">
+  <a class="rail-icon" href="https://www.linkedin.com/in/sriramselvam/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4ZM3.7 8.2h3v12h-3v-12Zm5 0h2.9v1.6h.04c.4-.8 1.4-2 3.9-2 4.1 0 4.9 2.7 4.9 6.3v6.1h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.1h-3v-12Z"></path></svg></a>
+  <a class="rail-icon" href="https://github.com/selvamsriram" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 7.5c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors=Sriram+Selvam" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"></path><path d="M7 11.5v4.2c2.7 2.1 7.3 2.1 10 0v-4.2M21 9v6"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://huggingface.co/srirxml" target="_blank" rel="noopener" aria-label="Hugging Face" title="Hugging Face"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="5"></circle><path d="M10 10h.01M14 10h.01M10 13c1.2.9 2.8.9 4 0M7.3 13.8 4 16.2l1.7 2.3 3.4-2.2M16.7 13.8l3.3 2.4-1.7 2.3-3.4-2.2"></path></svg></a>
+  <span class="rail-separator" aria-hidden="true"></span>
+  <button type="button" data-theme-toggle data-theme-toggle-rail aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</div>
+    <div class="rail-rule"></div>
+    <div class="rail-links">
+      <a class="rail-link" href="../../"><span class="rail-link-rule"></span><span>Index</span></a>
+      <a class="rail-link" href="../../#research"><span class="rail-link-rule"></span><span>Research</span></a>
+      <a class="rail-link" href="../../#systems"><span class="rail-link-rule"></span><span>Systems</span></a>
+      <a class="rail-link is-parent" href="../../#writing"><span class="rail-link-rule"></span><span>Writing</span></a>
+      <div class="rail-writing-tree" role="group" aria-label="Writing navigation">
+        <a class="rail-sub-link is-ancestor" href="../"><span>All writing</span></a>
+        <a class="rail-sub-link rail-article-link is-active" href="./" aria-current="page" title="Running Language Models Locally: A Beginner’s Guide"><span>Running Language Models Locally: A Beginner’s Guide</span></a>
+      </div>
+      <a class="rail-link" href="../../#experience"><span class="rail-link-rule"></span><span>Experience</span></a>
+      <a class="rail-link" href="../../#press"><span class="rail-link-rule"></span><span>Press</span></a>
+      <a class="rail-link" href="../../#education"><span class="rail-link-rule"></span><span>Education</span></a>
+      <a class="rail-link" href="../../#contact"><span class="rail-link-rule"></span><span>Contact</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="profile-nav-narrow" data-nav-narrow aria-label="Portfolio navigation">
+  <div class="profile-nav-scroll" data-nav-narrow-scroll>
+    <a class="narrow-link" href="../../">Index</a>
+    <a class="narrow-link" href="../../#research">Research</a>
+    <a class="narrow-link" href="../../#systems">Systems</a>
+    <a class="narrow-link is-parent" href="../../#writing">Writing</a>
+    <a class="narrow-context-link is-ancestor" href="../">All writing</a>
+    <a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="Running Language Models Locally: A Beginner’s Guide">Running Language Models Locally: A Beginner’s Guide</a>
+    <a class="narrow-link" href="../../#experience">Experience</a>
+    <a class="narrow-link" href="../../#press">Press</a>
+    <a class="narrow-link" href="../../#education">Education</a>
+    <a class="narrow-link" href="../../#contact">Contact</a>
+  </div>
+  <button type="button" data-theme-toggle data-theme-toggle-compact aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</nav>
+    <main class="profile-main" id="main-content">
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+    <article class="essay">
+      <header class="article-header">
+        <div class="hero-glow" data-hero-glow aria-hidden="true"></div>
+        <div class="article-title-row" data-row>
+          <div class="article-meta" data-meta-col data-reveal data-delay="60">
+            <span>Feb 18, 2025</span>
+            <span class="article-kind">Guide</span>
+            <span>5 min read</span>
+          </div>
+          <div class="article-title-copy">
+            <h1 data-reveal data-delay="90">Running Language Models Locally: A Beginner’s Guide</h1>
+            <p class="article-deck" data-reveal data-delay="180">Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.</p>
+            <div class="article-byline" data-reveal data-delay="240"><span>By Sriram Selvam</span><span>/</span><span>February 18, 2025</span></div>
+          </div>
+        </div>
+      </header>
+      <div class="article-layout" data-row>
+        <aside class="article-aside" data-meta-col>
+          <div class="aside-sticky">
+            <span class="aside-label">In this essay</span>
+            <nav data-article-toc aria-label="Article sections"></nav>
+          </div>
+        </aside>
+        <div class="article-body" id="article-body">
+          <figure><img alt="" src="../media/cfd645e7d08b-1.png" loading="lazy" /></figure><p>Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.</p><p>Thanks to recent advancements in model optimization, including distillation and quantization, smaller language models have become more accessible. If you’re interested in exploring local AI without requiring powerful hardware, there are user-friendly applications that make this possible.</p><h2>Why Run Language Models Locally?</h2><ul><li><strong>Privacy:</strong> Avoid sending data to cloud-based AI services.</li><li><strong>Customization:</strong> Fine-tune models for specific tasks.</li><li><strong>Offline Access:</strong> Use AI capabilities without an internet connection.</li><li><strong>Cost Savings:</strong> Eliminate reliance on paid API services.</li></ul><h2>Exploring LM Studio and Ollama</h2><p>Two notable options are <strong>LM Studio</strong> and <strong>Ollama</strong>, both of which provide intuitive ways to interact with open-source language models.</p><h3>LM Studio (<a target="_blank" rel="noopener" href="https://lmstudio.ai/">lmstudio.ai</a>)</h3><p>LM Studio offers a comprehensive multi-threaded chat interface, making it an excellent choice for those who prefer a graphical user experience. The platform features an extensive catalog of models and allows users to experiment with different LLMs seamlessly. Additionally, LM Studio can function as a server, enabling integration with other applications.</p><h3>Ollama (<a target="_blank" rel="noopener" href="https://ollama.com/">ollama.com</a>)</h3><p>Ollama provides a lightweight command-line interface for interacting with language models. It is ideal for users comfortable with terminal-based workflows and supports model serving capabilities, allowing for broader applications in AI development and experimentation.</p><p>As LM Studio is my personal favorite, lets take a detailed look on that below.</p><h2>Getting Started with LM Studio</h2><p>Visit <a target="_blank" rel="noopener" href="https://lmstudio.ai/">lmstudio.ai</a> and download the appropriate version for your operating system.</p><figure><img alt="Model Catalog from LM Studio" src="../media/cfd645e7d08b-2.png" loading="lazy" /><figcaption>Model Catalog from LM Studio</figcaption></figure><p>As seen above, LM studio offers a simple intuitive interface to pick a model to be loaded into local machine. Consider paying attention to the “Likely too large for this machine”</p><figure><img alt="Warning Message : Model too large for the machine" src="../media/cfd645e7d08b-3.png" loading="lazy" /><figcaption>Warning Message : Model too large for the machine</figcaption></figure><h2>Loading the downloaded model</h2><figure><img alt="Load Model Page displaying all available models in local machine" src="../media/cfd645e7d08b-4.png" loading="lazy" /><figcaption>Load Model Page displaying all available models in local machine</figcaption></figure><figure><img alt="Customization Settings for Model Load" src="../media/cfd645e7d08b-5.png" loading="lazy" /><figcaption>Customization Settings for Model Load</figcaption></figure><p>When available, offload the model to GPU for the best performance, so those matrix multiplications are parallelized.</p><h2>Performance Metrics</h2><p>Once the model is loaded, start playing around in the chat interface and view your system performance with metrics like</p><ul><li>Tokens/second</li><li>Seconds to first token</li><li>System Resource Usage</li></ul><figure><img alt="Chat metrics per message" src="../media/cfd645e7d08b-6.png" loading="lazy" /><figcaption>Chat metrics per message</figcaption></figure><h2>Create your own assistant</h2><p>Create your own chat personas or task specific assistant by customizing the system prompts. We will create a bot that is an assistant at local coffee gear shop. View system prompt below,</p><pre>You are an assistant at a local espresso equipment store.<br>Your role is to provide the response in the format of pros and cons for any coffee machine that is selected by the user and be helpful with their questions.<br><br>Here is an example interaction:<br>User: Tell me about Breville Barista Express?<br><br>Assistant:<br><br>Breville Barista Express – Pros &amp; Cons<br><br>✅ Pros:<br><br>Built-in Grinder – Conical burr grinder provides fresh grounds on demand.<br>Semi-Automatic Control – Good balance between automation and hands-on espresso making.<br>Temperature Control – PID system ensures consistent extraction temperature.<br>Steam Wand – Manual wand allows for microfoam milk texturing.<br>Value for Money – High-end features at a mid-range price.<br>❌ Cons:<br><br>Learning Curve – Requires some practice to dial in grind size and pressure.<br>Single Boiler – Can’t brew and steam milk simultaneously.<br>Limited Grinder Settings – Fewer adjustments compared to standalone grinders.<br>Plastic Components – Some parts feel less durable over time.<br><br>Let me know if you’d like a comparison with another machine or any recommendations based on your preferences! 😊</pre><figure><img alt="Sample interaction with the newly created Espresso Gear Assistant" src="../media/cfd645e7d08b-7.png" loading="lazy" /><figcaption>Sample interaction with the newly created Espresso Gear Assistant</figcaption></figure><h2>Structured Output</h2><p>You can get more from local LMs by enabling structured output from the model under Advanced configuration. This can be extremely valuable in minimizing the loss of data during string extraction.</p><pre>{<br>  &quot;type&quot;: &quot;object&quot;,<br>  &quot;properties&quot;: {<br>    &quot;machine_name&quot;: {<br>      &quot;type&quot;: &quot;string&quot;,<br>      &quot;description&quot;: &quot;The name of the coffee machine.&quot;<br>    },<br>    &quot;pros&quot;: {<br>      &quot;type&quot;: &quot;array&quot;,<br>      &quot;items&quot;: {<br>        &quot;type&quot;: &quot;string&quot;,<br>        &quot;description&quot;: &quot;A positive aspect of the coffee machine.&quot;<br>      },<br>      &quot;description&quot;: &quot;A list of pros for the coffee machine.&quot;<br>    },<br>    &quot;cons&quot;: {<br>      &quot;type&quot;: &quot;array&quot;,<br>      &quot;items&quot;: {<br>        &quot;type&quot;: &quot;string&quot;,<br>        &quot;description&quot;: &quot;A negative aspect of the coffee machine.&quot;<br>      },<br>      &quot;description&quot;: &quot;A list of cons for the coffee machine.&quot;<br>    }<br>  },<br>  &quot;required&quot;: [<br>    &quot;machine_name&quot;,<br>    &quot;pros&quot;,<br>    &quot;cons&quot;<br>  ]<br>}</pre><figure><img alt="Structured Output from LM after settings update." src="../media/cfd645e7d08b-8.png" loading="lazy" /><figcaption>Structured Output from LM after settings update.</figcaption></figure><h2>Conclusion</h2><p>Running language models locally empowers users with greater control, privacy, and flexibility in their AI interactions. With tools like LM Studio and Ollama, experimenting with LLMs has never been easier. As the field continues to evolve, local AI solutions will become even more powerful, making this the perfect time to get started. Let&#39;s look at how to use the LM Studio’s server mode in Part 2.</p>
+        </div>
+      </div>
+      <footer class="article-source">
+        <span data-meta-col>Source</span>
+        <div><span>Originally published on Medium.</span><a href="https://medium.com/llm-everything/running-language-models-locally-a-beginners-guide-cfd645e7d08b" target="_blank" rel="noopener">Medium ↗</a></div>
+      </footer>
+    </article>
+    <nav class="article-pager" aria-label="More writing">
+      <div class="section-heading" data-reveal data-delay="0">
+  <h2 class="section-title">More writing</h2>
+  
+</div>
+      <span></span>
+      <a class="pager-row" data-row href="../does-chatgpt-memory-contain-pii/">
+  <span class="pager-direction" data-meta-col>Older</span>
+  <strong>Does ChatGPT’s memory contain PII?</strong>
+  <span class="row-arrow" aria-hidden="true">→</span>
+</a>
+    </nav>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Running Language Models Locally: A Beginner’s Guide","description":"Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.","datePublished":"2025-02-18T08:30:25.000Z","author":{"@type":"Person","name":"Sriram Selvam","url":"https://www.srirams.dev"},"image":"https://www.srirams.dev/blog/media/cfd645e7d08b-1.png","mainEntityOfPage":"https://www.srirams.dev/blog/running-language-models-locally/"}</script>
+</main>
+    <footer class="profile-footer">
+  <div class="profile-footer-inner">
+    <span>© 2026 Sriram Selvam</span>
+    <div><a href="../../">Profile</a><a href="https://medium.com/@selvamsriram" target="_blank" rel="noopener">Medium ↗</a></div>
+  </div>
+</footer>
+  </div>
+  <script src="../blog.js?v=9"></script>
+</body>
+</html>

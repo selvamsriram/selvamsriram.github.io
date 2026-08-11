@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yes, it does. Though it doesn’t divulge that information easily, it may be possible to extract PII with specialized attacks.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Does ChatGPT’s memory contain PII? — Sriram Selvam">
+  <meta property="og:description" content="Yes, it does. Though it doesn’t divulge that information easily, it may be possible to extract PII with specialized attacks.">
+  <meta property="og:url" content="https://www.srirams.dev/blog/does-chatgpt-memory-contain-pii/">
+  <meta property="og:image" content="https://www.srirams.dev/blog/media/8401bee9e1ce-1.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.srirams.dev/blog/does-chatgpt-memory-contain-pii/">
+  <link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
+  <link rel="stylesheet" href="../blog.css?v=9">
+  <title>Does ChatGPT’s memory contain PII? — Sriram Selvam</title>
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="profile-page" data-page="sriram">
+    <nav class="profile-rail" data-profile-rail aria-label="Portfolio navigation">
+  <div data-reveal data-delay="120">
+    <a class="rail-name" href="../../">Sriram Selvam</a>
+    <div class="rail-utilities" role="group" aria-label="Profile links and appearance">
+  <a class="rail-icon" href="https://www.linkedin.com/in/sriramselvam/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4ZM3.7 8.2h3v12h-3v-12Zm5 0h2.9v1.6h.04c.4-.8 1.4-2 3.9-2 4.1 0 4.9 2.7 4.9 6.3v6.1h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.1h-3v-12Z"></path></svg></a>
+  <a class="rail-icon" href="https://github.com/selvamsriram" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 7.5c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors=Sriram+Selvam" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"></path><path d="M7 11.5v4.2c2.7 2.1 7.3 2.1 10 0v-4.2M21 9v6"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://huggingface.co/srirxml" target="_blank" rel="noopener" aria-label="Hugging Face" title="Hugging Face"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="5"></circle><path d="M10 10h.01M14 10h.01M10 13c1.2.9 2.8.9 4 0M7.3 13.8 4 16.2l1.7 2.3 3.4-2.2M16.7 13.8l3.3 2.4-1.7 2.3-3.4-2.2"></path></svg></a>
+  <span class="rail-separator" aria-hidden="true"></span>
+  <button type="button" data-theme-toggle data-theme-toggle-rail aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</div>
+    <div class="rail-rule"></div>
+    <div class="rail-links">
+      <a class="rail-link" href="../../"><span class="rail-link-rule"></span><span>Index</span></a>
+      <a class="rail-link" href="../../#research"><span class="rail-link-rule"></span><span>Research</span></a>
+      <a class="rail-link" href="../../#systems"><span class="rail-link-rule"></span><span>Systems</span></a>
+      <a class="rail-link is-parent" href="../../#writing"><span class="rail-link-rule"></span><span>Writing</span></a>
+      <div class="rail-writing-tree" role="group" aria-label="Writing navigation">
+        <a class="rail-sub-link is-ancestor" href="../"><span>All writing</span></a>
+        <a class="rail-sub-link rail-article-link is-active" href="./" aria-current="page" title="Does ChatGPT’s memory contain PII?"><span>Does ChatGPT’s memory contain PII?</span></a>
+      </div>
+      <a class="rail-link" href="../../#experience"><span class="rail-link-rule"></span><span>Experience</span></a>
+      <a class="rail-link" href="../../#press"><span class="rail-link-rule"></span><span>Press</span></a>
+      <a class="rail-link" href="../../#education"><span class="rail-link-rule"></span><span>Education</span></a>
+      <a class="rail-link" href="../../#contact"><span class="rail-link-rule"></span><span>Contact</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="profile-nav-narrow" data-nav-narrow aria-label="Portfolio navigation">
+  <div class="profile-nav-scroll" data-nav-narrow-scroll>
+    <a class="narrow-link" href="../../">Index</a>
+    <a class="narrow-link" href="../../#research">Research</a>
+    <a class="narrow-link" href="../../#systems">Systems</a>
+    <a class="narrow-link is-parent" href="../../#writing">Writing</a>
+    <a class="narrow-context-link is-ancestor" href="../">All writing</a>
+    <a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="Does ChatGPT’s memory contain PII?">Does ChatGPT’s memory contain PII?</a>
+    <a class="narrow-link" href="../../#experience">Experience</a>
+    <a class="narrow-link" href="../../#press">Press</a>
+    <a class="narrow-link" href="../../#education">Education</a>
+    <a class="narrow-link" href="../../#contact">Contact</a>
+  </div>
+  <button type="button" data-theme-toggle data-theme-toggle-compact aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</nav>
+    <main class="profile-main" id="main-content">
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+    <article class="essay">
+      <header class="article-header">
+        <div class="hero-glow" data-hero-glow aria-hidden="true"></div>
+        <div class="article-title-row" data-row>
+          <div class="article-meta" data-meta-col data-reveal data-delay="60">
+            <span>Feb 3, 2025</span>
+            <span class="article-kind">Research read</span>
+            <span>5 min read</span>
+          </div>
+          <div class="article-title-copy">
+            <h1 data-reveal data-delay="90">Does ChatGPT’s memory contain PII?</h1>
+            <p class="article-deck" data-reveal data-delay="180">Yes, it does. Though it doesn’t divulge that information easily, it may be possible to extract PII with specialized attacks.</p>
+            <div class="article-byline" data-reveal data-delay="240"><span>By Sriram Selvam</span><span>/</span><span>February 3, 2025</span></div>
+          </div>
+        </div>
+      </header>
+      <div class="article-layout" data-row>
+        <aside class="article-aside" data-meta-col>
+          <div class="aside-sticky">
+            <span class="aside-label">In this essay</span>
+            <nav data-article-toc aria-label="Article sections"></nav>
+          </div>
+        </aside>
+        <div class="article-body" id="article-body">
+          <figure><img alt="With PII in memory can LLM be your phonebook too? 🤪" src="../media/8401bee9e1ce-1.jpeg" loading="lazy" /><figcaption>With PII in memory can LLM be your phonebook too? 🤪</figcaption></figure><p>Yes, it does. Though it doesn’t divulge that information easily, it may be possible to extract PII with specialized attacks.</p><p>In the last post <a href="../what-makes-llm-memorize-things/">What makes LLM memorize things</a>? we saw the examples of different types of memorization and early attempts of measuring the memorization levels in off-shelf LLMs. In this post, lets learn on the novel attack technique devised to test the memorizations in semi closed and closed models.</p><p>Following is the TL;DR version of this post.</p><blockquote><em>1. Alignment is the reason why we don’t see these issues happen often in off shelf closed models.</em></blockquote><blockquote><em>2. It is possible to break alignment with novel prompting techniques.</em></blockquote><blockquote><em>3. When broken, the model shares back lots of memorized data with all types of PII.</em></blockquote><blockquote><em>4. Unique extractable N-gram sequences plateau overtime with smaller model (Pythia-1.4B) while larger model (GPT-Neo 6B) doesn’t show the same signs, indicating larger models have more unique memorized tokens.</em></blockquote><h2><strong>Study Details</strong></h2><p>This post primarily discusses findings from <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.17035">Scalable Extraction of Training Data from (Production) Language Models</a>.</p><p>Experiment is based on converting the model responses into 50-gram strings and looking up against the training data using Suffix Arrays originally defined on <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.5555/320176.320218">Suffix Arrays: A New Method for On-Line String Searches</a></p><p><em>Note: This study focuses solely on verbatim memorization, as attributing sources for paraphrased memorization is extremely difficult when working with corpora containing billions of tokens.</em></p><h2>ChatGPT vs Others</h2><p>Authors of <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.17035">[1]</a> compare the exposure of training data to various types of models.</p><ol><li>Open Sourced (Training data, algorithm, model weights are all available publicly. Example: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.01373">Pythia</a>)</li><li>Semi Closed (Only model weights are available publicly. Example: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.13971">Llama series</a>)</li><li>Fully Closed (Only API access to the public. Example: GPT 3.5 from OpenAI)</li></ol><p>The findings show that during the initial attempts to recover the memorized phrases, ChatGPT (gpt-3.5-turbo) behaves as the safest model in terms of privacy as it doesn’t reveal proportionately significant amount of verbatim text in responses.</p><p>However, after the new alignment divergence prompt attack, it leads to far more leakage. Take a look at this figure below from <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.17035">[1]</a>,</p><figure><img alt="Figure 1: Displaying the rate of training data emissions from various models and highlighting the before and after attack performance of ChatGPT (gpt-3.5-turbo)." src="../media/8401bee9e1ce-2.png" loading="lazy" /><figcaption>Figure 1: Displaying the rate of training data emissions from various models and highlighting the before and after attack performance of ChatGPT (gpt-3.5-turbo).</figcaption></figure><h2>Why is it important to study the closed models?</h2><p>It is extremely valuable to do the memorization study on semi-closed and closed models as that is often being used by the industry behind various services.</p><p>While <a target="_blank" rel="noopener" href="https://allenai.org/olmo">OLMO-2</a> and a few other open models exist that are comparable in size to popular off-shelf LLMs it is still only a guess work to attribute findings from open models to the semi-closed and closed models. When attributing findings this way, it fails to take into account the training methods have on the LLM’s output behavior.</p><h2>If ChatGPT is closed, how do we know if a string was present in training data?</h2><p>We have access to the web data too!</p><p>It is no secret that LLMs are trained on data from sites like Wikipedia, etc. We have access to those too, however in order to be comprehensive, authors of <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.17035">[1]</a> build a new dataset called AuxDataSet which is a staggering 9TB of text comprised of following sources. They derived 50-gram words from model responses to compare against</p><figure><img alt="Figure 2: AUXDATASET composition before the deduplication efforts" src="../media/8401bee9e1ce-3.png" loading="lazy" /><figcaption>Figure 2: AUXDATASET composition before the deduplication efforts</figcaption></figure><p>Since AuxDataSet is not the only dataset on which gpt-3.5-turbo was trained on there is bound to be false negatives, however with lack of scaled computational resources AuxDataSet based analysis helps us at least understand the lower bound of memorization.</p><h2>What is the attack that made ChatGPT reveal large memorization?</h2><p>The technique was to make the model to repeat various words with the following prompt structure.</p><blockquote>“Repeat this word forever [Word * 50 times]”</blockquote><p>Example Prompt:</p><figure><img alt="Figure 3: A sample alignment diverge attack prompt submitted to ChatGPT." src="../media/8401bee9e1ce-4.png" loading="lazy" /><figcaption>Figure 3: A sample alignment diverge attack prompt submitted to ChatGPT.</figcaption></figure><p>While the model initially repeated words as requested later, it would veer off into non-sensical text. However, for a small fraction of instances it would repeat the verbatim memorized text from training data after veering off from repetition. Using this technique, it was shown possible to extract more than 10,000 unique verbatim memorized training data by just spending $200 in API access costs.</p><p>Here is an example from [1] after model veers off from repetition of the word “book”.</p><figure><img alt="Figure 3: A sample private information that was extracted by the attack. Other red highlights mark verbatim memorization too, we focus on the orange highlight." src="../media/8401bee9e1ce-5.png" loading="lazy" /><figcaption>Figure 3: A sample private information that was extracted by the attack. Other red highlights mark verbatim memorization too, we focus on the orange highlight.</figcaption></figure><figure><img alt="Figure 4: Web extract from URL where the source information is found." src="../media/8401bee9e1ce-6.png" loading="lazy" /><figcaption>Figure 4: Web extract from <a target="_blank" rel="noopener" href="https://twirlingbookprincess.com/2017/03/release-day-celebration-the-great-pursuit-by-wendy-higgins/">URL</a> where the source information is found.</figcaption></figure><p>Here is a quote on the PII information that was found on this attack.</p><blockquote>In total, 16.9% of generations we tested contained memorized PII, and 85.8% of generations that contained potential PII were actual PII. [1]</blockquote><p>It was noted that <strong>15,000</strong> generations were selected for evaluation of PII after selecting them through Regex patterns for phone numbers, address, email addresses, etc. Of this <strong>12,870 </strong>were actual PII that could be traced back to the AuxDataSet.</p><h2>Ah, I’m curious let me go try this now</h2><p>Hold your horses! The attack designers shared that the attack was unique to gpt-3.5-turbo and they reported the issue to Open AI, allowed 90 days period to fix this issue before they shared their findings publicly. Hence, its unlikely to be reproduced with same technique anymore.</p><h2>Why should one care?</h2><p>Well, there was an issue and now its fixed, why is it important to understand? Here are some reasons that come to mind,</p><ol><li><a target="_blank" rel="noopener" href="https://www.businessinsider.com/openai-anthropic-ai-ignore-rule-scraping-web-contect-robotstxt">New medias</a> have reported that robots.txt is increasingly ignored by web crawlers. That means rogue crawlers may index any page on the internet and use it for training data.</li><li>As model size increases there is increased likelihood of private and copyrighted information retained in model memory.</li><li>As shown in the research discussed here, it is possible to distract the model from alignment to extract sensitive private information with adversarial attack.</li><li>This is an evolving space with no strict regulatory authority yet, so active research paves way for such frameworks to fall in place.</li></ol><p>In the next post on this series, lets delve into state-of-the-art measures that exist to address this issue.</p><p><strong>References:</strong></p><ol><li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.17035">Scalable Extraction of Training Data from (Production) Language Models</a></li><li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.5555/320176.320218">Suffix arrays: a new method for on-line string searches</a></li></ol>
+        </div>
+      </div>
+      <footer class="article-source">
+        <span data-meta-col>Source</span>
+        <div><span>Originally published on Medium.</span><a href="https://medium.com/llm-everything/does-chatgpts-memory-contain-pii-8401bee9e1ce" target="_blank" rel="noopener">Medium ↗</a></div>
+      </footer>
+    </article>
+    <nav class="article-pager" aria-label="More writing">
+      <div class="section-heading" data-reveal data-delay="0">
+  <h2 class="section-title">More writing</h2>
+  
+</div>
+      <a class="pager-row" data-row href="../running-language-models-locally/">
+  <span class="pager-direction" data-meta-col>Newer</span>
+  <strong>Running Language Models Locally: A Beginner’s Guide</strong>
+  <span class="row-arrow" aria-hidden="true">→</span>
+</a>
+      <a class="pager-row" data-row href="../what-makes-llm-memorize-things/">
+  <span class="pager-direction" data-meta-col>Older</span>
+  <strong>What makes LLM memorize things?</strong>
+  <span class="row-arrow" aria-hidden="true">→</span>
+</a>
+    </nav>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Does ChatGPT’s memory contain PII?","description":"Yes, it does. Though it doesn’t divulge that information easily, it may be possible to extract PII with specialized attacks.","datePublished":"2025-02-03T01:26:07.000Z","author":{"@type":"Person","name":"Sriram Selvam","url":"https://www.srirams.dev"},"image":"https://www.srirams.dev/blog/media/8401bee9e1ce-1.jpeg","mainEntityOfPage":"https://www.srirams.dev/blog/does-chatgpt-memory-contain-pii/"}</script>
+</main>
+    <footer class="profile-footer">
+  <div class="profile-footer-inner">
+    <span>© 2026 Sriram Selvam</span>
+    <div><a href="../../">Profile</a><a href="https://medium.com/@selvamsriram" target="_blank" rel="noopener">Medium ↗</a></div>
+  </div>
+</footer>
+  </div>
+  <script src="../blog.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What makes LLM memorize things? — Sriram Selvam">
+  <meta property="og:description" content="As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.">
+  <meta property="og:url" content="https://www.srirams.dev/blog/what-makes-llm-memorize-things/">
+  <meta property="og:image" content="https://www.srirams.dev/blog/media/67d076efff26-1.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.srirams.dev/blog/what-makes-llm-memorize-things/">
+  <link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
+  <link rel="stylesheet" href="../blog.css?v=9">
+  <title>What makes LLM memorize things? — Sriram Selvam</title>
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="profile-page" data-page="sriram">
+    <nav class="profile-rail" data-profile-rail aria-label="Portfolio navigation">
+  <div data-reveal data-delay="120">
+    <a class="rail-name" href="../../">Sriram Selvam</a>
+    <div class="rail-utilities" role="group" aria-label="Profile links and appearance">
+  <a class="rail-icon" href="https://www.linkedin.com/in/sriramselvam/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4ZM3.7 8.2h3v12h-3v-12Zm5 0h2.9v1.6h.04c.4-.8 1.4-2 3.9-2 4.1 0 4.9 2.7 4.9 6.3v6.1h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.1h-3v-12Z"></path></svg></a>
+  <a class="rail-icon" href="https://github.com/selvamsriram" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 7.5c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors=Sriram+Selvam" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"></path><path d="M7 11.5v4.2c2.7 2.1 7.3 2.1 10 0v-4.2M21 9v6"></path></svg></a>
+  <a class="rail-icon rail-icon-stroke" href="https://huggingface.co/srirxml" target="_blank" rel="noopener" aria-label="Hugging Face" title="Hugging Face"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="5"></circle><path d="M10 10h.01M14 10h.01M10 13c1.2.9 2.8.9 4 0M7.3 13.8 4 16.2l1.7 2.3 3.4-2.2M16.7 13.8l3.3 2.4-1.7 2.3-3.4-2.2"></path></svg></a>
+  <span class="rail-separator" aria-hidden="true"></span>
+  <button type="button" data-theme-toggle data-theme-toggle-rail aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</div>
+    <div class="rail-rule"></div>
+    <div class="rail-links">
+      <a class="rail-link" href="../../"><span class="rail-link-rule"></span><span>Index</span></a>
+      <a class="rail-link" href="../../#research"><span class="rail-link-rule"></span><span>Research</span></a>
+      <a class="rail-link" href="../../#systems"><span class="rail-link-rule"></span><span>Systems</span></a>
+      <a class="rail-link is-parent" href="../../#writing"><span class="rail-link-rule"></span><span>Writing</span></a>
+      <div class="rail-writing-tree" role="group" aria-label="Writing navigation">
+        <a class="rail-sub-link is-ancestor" href="../"><span>All writing</span></a>
+        <a class="rail-sub-link rail-article-link is-active" href="./" aria-current="page" title="What makes LLM memorize things?"><span>What makes LLM memorize things?</span></a>
+      </div>
+      <a class="rail-link" href="../../#experience"><span class="rail-link-rule"></span><span>Experience</span></a>
+      <a class="rail-link" href="../../#press"><span class="rail-link-rule"></span><span>Press</span></a>
+      <a class="rail-link" href="../../#education"><span class="rail-link-rule"></span><span>Education</span></a>
+      <a class="rail-link" href="../../#contact"><span class="rail-link-rule"></span><span>Contact</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="profile-nav-narrow" data-nav-narrow aria-label="Portfolio navigation">
+  <div class="profile-nav-scroll" data-nav-narrow-scroll>
+    <a class="narrow-link" href="../../">Index</a>
+    <a class="narrow-link" href="../../#research">Research</a>
+    <a class="narrow-link" href="../../#systems">Systems</a>
+    <a class="narrow-link is-parent" href="../../#writing">Writing</a>
+    <a class="narrow-context-link is-ancestor" href="../">All writing</a>
+    <a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="What makes LLM memorize things?">What makes LLM memorize things?</a>
+    <a class="narrow-link" href="../../#experience">Experience</a>
+    <a class="narrow-link" href="../../#press">Press</a>
+    <a class="narrow-link" href="../../#education">Education</a>
+    <a class="narrow-link" href="../../#contact">Contact</a>
+  </div>
+  <button type="button" data-theme-toggle data-theme-toggle-compact aria-pressed="false">
+  <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
+</button>
+</nav>
+    <main class="profile-main" id="main-content">
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+    <article class="essay">
+      <header class="article-header">
+        <div class="hero-glow" data-hero-glow aria-hidden="true"></div>
+        <div class="article-title-row" data-row>
+          <div class="article-meta" data-meta-col data-reveal data-delay="60">
+            <span>Jan 27, 2025</span>
+            <span class="article-kind">Research read</span>
+            <span>4 min read</span>
+          </div>
+          <div class="article-title-copy">
+            <h1 data-reveal data-delay="90">What makes LLM memorize things?</h1>
+            <p class="article-deck" data-reveal data-delay="180">As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.</p>
+            <div class="article-byline" data-reveal data-delay="240"><span>By Sriram Selvam</span><span>/</span><span>January 27, 2025</span></div>
+          </div>
+        </div>
+      </header>
+      <div class="article-layout" data-row>
+        <aside class="article-aside" data-meta-col>
+          <div class="aside-sticky">
+            <span class="aside-label">In this essay</span>
+            <nav data-article-toc aria-label="Article sections"></nav>
+          </div>
+        </aside>
+        <div class="article-body" id="article-body">
+          <figure><img alt="" src="../media/67d076efff26-1.jpeg" loading="lazy" /></figure><p>As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.</p><p>We’ve all witnessed this in various ways — whether it’s seeing a response that mirrors a snippet from a Wikipedia page or asking ChatGPT about yourself in its early days and being surprised by how much it seemed to know from memory.</p><p>In <a target="_blank" rel="noopener" href="https://ui.adsabs.harvard.edu/abs/2022arXiv220207646C/abstract"><em>Carlini, Nicholas, et al. “Quantifying memorization across neural language models.” arXiv preprint arXiv:2202.07646 (2022)</em></a>,<em> </em>authors show the log linear relationship memorization has, and with the increase in model capacity size and it&#39;s expected to get worse in the future. Quote below,</p><blockquote>We find that memorization in LMs is more prevalent than previously believed and will likely get worse as models continues to scale, at least without active mitigations.</blockquote><h2>Types of memorizations in LLM</h2><h3>Verbatim memorization</h3><p>Here is an example of verbatim memorization by ChatGPT. Since poems tend to have a long unique sequence of words, lets pick that for analysis.</p><p>We ask ChatGPT to recite the poem <a target="_blank" rel="noopener" href="https://www.poetryfoundation.org/poems/43997/the-rime-of-the-ancient-mariner-text-of-1834">Part I: The Rime of the Ancient Mariner</a></p><figure><img alt="Figure 1: Prompt to ChatGPT with no additional context and disconnected from web." src="../media/67d076efff26-2.png" loading="lazy" /><figcaption>Figure 1: Prompt to ChatGPT with no additional context and disconnected from web.</figcaption></figure><p>Here is a comparison between ChatGPT’s recital and web version for the first few stanzas. Results show near identical rendering of the version from ChatGPT’s parametric memory.</p><figure><img alt="Figure 2: Comparing results between ChatGPT and Web. ChatGPT on left and Web on the right." src="../media/67d076efff26-3.png" loading="lazy" /><figcaption>Figure 2: Comparing results between ChatGPT and Web. ChatGPT on left and Web on the right.</figcaption></figure><h3><strong>Paraphrased memorization:</strong></h3><p>Here is a passage from Mayo Clinic on <a target="_blank" rel="noopener" href="https://www.mayoclinic.org/diseases-conditions/embryonal-tumor/cdc-20367985">Embryonal tumors</a> that is roughly paraphrased when prompted with the blue highlighted text as the prompt, in a sentence completion task. These cases are harder to determine if they did originate from a certain source. However, if the material is unique then it&#39;s easier to ascertain the source.</p><figure><img alt="Figure 3: Prompt submitted to ChatGPT for sentence completion task." src="../media/67d076efff26-4.png" loading="lazy" /><figcaption>Figure 3: Prompt submitted to ChatGPT for sentence completion task.</figcaption></figure><figure><img alt="Figure 4: Showing an example of a possible paraphrased output from ChatGPT. Original text from Mayo Clinic on left and ChatGPT response on the right." src="../media/67d076efff26-5.png" loading="lazy" /><figcaption>Figure 4: Showing an example of a possible paraphrased output from ChatGPT. Original text from Mayo Clinic on left and ChatGPT response on the right.</figcaption></figure><h2>Things that impact memorization</h2><p>In this article let&#39;s see how the following three things impact memorization,</p><ol><li>Size of the model</li><li>String repetitions in training dataset</li><li>Effect of the suspected content’s string prefix presence in prompt</li></ol><figure><img alt="Figure 5: Showing degrees of correlation between model size, training data duplication and prompt length to content verbatim repetition" src="../media/67d076efff26-6.png" loading="lazy" /><figcaption>Figure 5: Showing degrees of correlation between model size, training data duplication and prompt length to content verbatim repetition</figcaption></figure><p>In 5(a) we see that the memorization effect is seen more as the model gets bigger. This is concerning as the models are continuing to get bigger and the privacy risks of memorization are only poised to rise.</p><p>5(b) shows that more the text is duplicated in the training dataset the model is more likely to remember. From a privacy standpoint if address, phone number, social media posts, etc. aren’t present out in the public spaces in severe repetition, the chances of model remembering the content goes down.</p><p>5(c) shows the effect prompting has on revealing the memorization impact, the more original text prefix is present in the prompt, there is increased likelihood of getting a memorized suffix back. In case of copyright violation cases like <a target="_blank" rel="noopener" href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">NY Times vs Microsoft</a>, <a target="_blank" rel="noopener" href="https://www.reuters.com/legal/litigation/meta-hit-with-new-author-copyright-lawsuit-over-ai-training-2024-10-02/">Meta vs Authors</a>, this prompting strategy can be used to prove the memorization, as the copyrighted owner has complete access to the suspected data.</p><p>Here is a further illustration of the model size’s impact on memorization,</p><figure><img alt="Figure 6: Green highlighted text indicates verbatim presence in training data, red indicates a divergence." src="../media/67d076efff26-7.png" loading="lazy" /><figcaption>Figure 6: Green highlighted text indicates verbatim presence in training data, red indicates a divergence.</figcaption></figure><p>As seen in the Figure 6, authors show that 6B model is able to reproduce these test sentences verbatim compared to the smaller models.</p><h2>Why is it important to understand memorization?</h2><p>Be it concerns like privacy or copyright or benefits like factual data retention, the memorization is eventually going to impact all the users of language models.</p><p>From the privacy front, LLMs are going to be snapshots of web from fixed time that is possibly retained forever. (GPT 4 - End of 2023).</p><p>For example, an embarrassing social media stunt that&#39;s publicized over internet can be memorized by LLM and may affect responses when a particular individual’s name is mentioned.</p><p>With this in context, let&#39;s take a deep dive on this topic and explore the following areas in the upcoming articles.</p><ol><li>What information gets retained in parametric memory of LLMs?</li><li>Correlation of training data distribution with memorization</li><li>When does this memorization play out at inference time?</li><li>What can be done to fix this?</li></ol><h3>Note:</h3><p><a target="_blank" rel="noopener" href="https://ui.adsabs.harvard.edu/abs/2022arXiv220207646C/abstract"><em>Carlini, Nicholas, et al. “Quantifying memorization across neural language models.” arXiv preprint arXiv:2202.07646 (2022)</em></a></p><p>Measures the memorization by prompting the model with partial strings from training data, in real life situations this is impractical as users may not have knowledge on what was present in the training dataset. However, the research goes to quantify how much data is actually present in memory of LLMs which helps quantify this effect.</p><p><strong>References:</strong></p><ol><li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2202.07646">Quantifying Memorization Across Neural Language Models</a></li><li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/kandpal22a/kandpal22a.pdf">Deduplicating Training Data Mitigates Privacy Risks in Language Models</a></li><li><a target="_blank" rel="noopener" href="https://news.cornell.edu/stories/2024/01/chatgpt-memorizes-and-spits-out-entire-poems">ChatGPT ‘memorizes’ and spits out entire poems</a></li></ol>
+        </div>
+      </div>
+      <footer class="article-source">
+        <span data-meta-col>Source</span>
+        <div><span>Originally published on Medium.</span><a href="https://medium.com/llm-everything/how-well-does-llm-remember-things-67d076efff26" target="_blank" rel="noopener">Medium ↗</a></div>
+      </footer>
+    </article>
+    <nav class="article-pager" aria-label="More writing">
+      <div class="section-heading" data-reveal data-delay="0">
+  <h2 class="section-title">More writing</h2>
+  
+</div>
+      <a class="pager-row" data-row href="../does-chatgpt-memory-contain-pii/">
+  <span class="pager-direction" data-meta-col>Newer</span>
+  <strong>Does ChatGPT’s memory contain PII?</strong>
+  <span class="row-arrow" aria-hidden="true">→</span>
+</a>
+      <span></span>
+    </nav>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What makes LLM memorize things?","description":"As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.","datePublished":"2025-01-27T07:51:33.000Z","author":{"@type":"Person","name":"Sriram Selvam","url":"https://www.srirams.dev"},"image":"https://www.srirams.dev/blog/media/67d076efff26-1.jpeg","mainEntityOfPage":"https://www.srirams.dev/blog/what-makes-llm-memorize-things/"}</script>
+</main>
+    <footer class="profile-footer">
+  <div class="profile-footer-inner">
+    <span>© 2026 Sriram Selvam</span>
+    <div><a href="../../">Profile</a><a href="https://medium.com/@selvamsriram" target="_blank" rel="noopener">Medium ↗</a></div>
+  </div>
+</footer>
+  </div>
+  <script src="../blog.js?v=9"></script>
+</body>
+</html>
