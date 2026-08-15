@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://www.srirams.dev/blog/what-makes-llm-memorize-things/">
   <link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="../blog.css?v=14">
+  <link rel="stylesheet" href="../blog.css?v=18">
   <title>What makes LLM memorize things? — Sriram Selvam</title>
 </head>
 <body class="article-page">
@@ -59,17 +59,10 @@
     <a class="narrow-link is-parent" href="../../#writing">Writing</a>
     <a class="narrow-context-link is-ancestor" href="../">All writing</a>
     <a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="What makes LLM memorize things?">What makes LLM memorize things?</a>
-    <button type="button" class="narrow-context-link narrow-essay-toggle" data-essay-menu-toggle aria-expanded="false" aria-controls="essay-navigation"><span>In this essay</span><span aria-hidden="true">+</span></button>
     <a class="narrow-link" href="../../#experience">Experience</a>
     <a class="narrow-link" href="../../#press">Press</a>
     <a class="narrow-link" href="../../#education">Education</a>
     <a class="narrow-link" href="../../#contact">Contact</a>
-  </div>
-  <div class="narrow-essay-panel" data-essay-menu id="essay-navigation" hidden>
-    <div class="narrow-essay-panel-inner">
-      <div class="narrow-essay-panel-heading"><span>In this essay</span><button type="button" data-essay-menu-close aria-label="Close article navigation">Close</button></div>
-      <div class="narrow-essay-links" data-article-toc-narrow role="group" aria-label="Article sections"></div>
-    </div>
   </div>
   <button type="button" data-theme-toggle data-theme-toggle-compact aria-pressed="false">
   <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
@@ -80,12 +73,7 @@
     <article class="essay">
       <header class="article-header">
         <div class="hero-glow" data-hero-glow aria-hidden="true"></div>
-        <div class="article-title-row" data-row>
-          <div class="article-meta" data-meta-col data-reveal data-delay="60">
-            <span>Jan 27, 2025</span>
-            <span class="article-kind">Research read</span>
-            <span>4 min read</span>
-          </div>
+        <div class="article-title-row">
           <div class="article-title-copy">
             <h1 data-reveal data-delay="90">What makes LLM memorize things?</h1>
             <p class="article-deck" data-reveal data-delay="180">As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.</p>
@@ -94,12 +82,6 @@
         </div>
       </header>
       <div class="article-layout">
-        <aside class="article-aside" aria-label="Article navigation">
-          <div class="aside-sticky">
-            <span class="aside-label">In this essay</span>
-            <div data-article-toc role="group" aria-label="Article sections"></div>
-          </div>
-        </aside>
         <div class="article-body" id="article-body">
           <figure><img alt="" src="../media/67d076efff26-1.jpeg" width="1024" height="576" loading="lazy" decoding="async" /></figure><p>As we enter 2025, LLMs have become ubiquitous, and it’s now widely understood that they can retain information from their training data.</p><p>We’ve all witnessed this in various ways — whether it’s seeing a response that mirrors a snippet from a Wikipedia page or asking ChatGPT about yourself in its early days and being surprised by how much it seemed to know from memory.</p><p>In <a target="_blank" rel="noopener" href="https://ui.adsabs.harvard.edu/abs/2022arXiv220207646C/abstract"><em>Carlini, Nicholas, et al. “Quantifying memorization across neural language models.” arXiv preprint arXiv:2202.07646 (2022)</em></a>,<em> </em>authors show the log linear relationship memorization has, and with the increase in model capacity size and it&#39;s expected to get worse in the future. Quote below,</p><blockquote>We find that memorization in LMs is more prevalent than previously believed and will likely get worse as models continues to scale, at least without active mitigations.</blockquote><h2>Types of memorizations in LLM</h2><h3>Verbatim memorization</h3><p>Here is an example of verbatim memorization by ChatGPT. Since poems tend to have a long unique sequence of words, lets pick that for analysis.</p><p>We ask ChatGPT to recite the poem <a target="_blank" rel="noopener" href="https://www.poetryfoundation.org/poems/43997/the-rime-of-the-ancient-mariner-text-of-1834">Part I: The Rime of the Ancient Mariner</a></p><figure><img alt="Figure 1: Prompt to ChatGPT with no additional context and disconnected from web." src="../media/67d076efff26-2.png" width="1024" height="133" loading="lazy" decoding="async" /><figcaption>Figure 1: Prompt to ChatGPT with no additional context and disconnected from web.</figcaption></figure><p>Here is a comparison between ChatGPT’s recital and web version for the first few stanzas. Results show near identical rendering of the version from ChatGPT’s parametric memory.</p><figure><img alt="Figure 2: Comparing results between ChatGPT and Web. ChatGPT on left and Web on the right." src="../media/67d076efff26-3.png" width="1024" height="475" loading="lazy" decoding="async" /><figcaption>Figure 2: Comparing results between ChatGPT and Web. ChatGPT on left and Web on the right.</figcaption></figure><h3><strong>Paraphrased memorization:</strong></h3><p>Here is a passage from Mayo Clinic on <a target="_blank" rel="noopener" href="https://www.mayoclinic.org/diseases-conditions/embryonal-tumor/cdc-20367985">Embryonal tumors</a> that is roughly paraphrased when prompted with the blue highlighted text as the prompt, in a sentence completion task. These cases are harder to determine if they did originate from a certain source. However, if the material is unique then it&#39;s easier to ascertain the source.</p><figure><img alt="Figure 3: Prompt submitted to ChatGPT for sentence completion task." src="../media/67d076efff26-4.png" width="1024" height="222" loading="lazy" decoding="async" /><figcaption>Figure 3: Prompt submitted to ChatGPT for sentence completion task.</figcaption></figure><figure><img alt="Figure 4: Showing an example of a possible paraphrased output from ChatGPT. Original text from Mayo Clinic on left and ChatGPT response on the right." src="../media/67d076efff26-5.png" width="1024" height="547" loading="lazy" decoding="async" /><figcaption>Figure 4: Showing an example of a possible paraphrased output from ChatGPT. Original text from Mayo Clinic on left and ChatGPT response on the right.</figcaption></figure><h2>Things that impact memorization</h2><p>In this article let&#39;s see how the following three things impact memorization,</p><ol><li>Size of the model</li><li>String repetitions in training dataset</li><li>Effect of the suspected content’s string prefix presence in prompt</li></ol><figure><img alt="Figure 5: Showing degrees of correlation between model size, training data duplication and prompt length to content verbatim repetition" src="../media/67d076efff26-6.png" width="1024" height="379" loading="lazy" decoding="async" /><figcaption>Figure 5: Showing degrees of correlation between model size, training data duplication and prompt length to content verbatim repetition</figcaption></figure><p>In 5(a) we see that the memorization effect is seen more as the model gets bigger. This is concerning as the models are continuing to get bigger and the privacy risks of memorization are only poised to rise.</p><p>5(b) shows that more the text is duplicated in the training dataset the model is more likely to remember. From a privacy standpoint if address, phone number, social media posts, etc. aren’t present out in the public spaces in severe repetition, the chances of model remembering the content goes down.</p><p>5(c) shows the effect prompting has on revealing the memorization impact, the more original text prefix is present in the prompt, there is increased likelihood of getting a memorized suffix back. In case of copyright violation cases like <a target="_blank" rel="noopener" href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">NY Times vs Microsoft</a>, <a target="_blank" rel="noopener" href="https://www.reuters.com/legal/litigation/meta-hit-with-new-author-copyright-lawsuit-over-ai-training-2024-10-02/">Meta vs Authors</a>, this prompting strategy can be used to prove the memorization, as the copyrighted owner has complete access to the suspected data.</p><p>Here is a further illustration of the model size’s impact on memorization,</p><figure><img alt="Figure 6: Green highlighted text indicates verbatim presence in training data, red indicates a divergence." src="../media/67d076efff26-7.png" width="1024" height="276" loading="lazy" decoding="async" /><figcaption>Figure 6: Green highlighted text indicates verbatim presence in training data, red indicates a divergence.</figcaption></figure><p>As seen in the Figure 6, authors show that 6B model is able to reproduce these test sentences verbatim compared to the smaller models.</p><h2>Why is it important to understand memorization?</h2><p>Be it concerns like privacy or copyright or benefits like factual data retention, the memorization is eventually going to impact all the users of language models.</p><p>From the privacy front, LLMs are going to be snapshots of web from fixed time that is possibly retained forever. (GPT 4 - End of 2023).</p><p>For example, an embarrassing social media stunt that&#39;s publicized over internet can be memorized by LLM and may affect responses when a particular individual’s name is mentioned.</p><p>With this in context, let&#39;s take a deep dive on this topic and explore the following areas in the upcoming articles.</p><ol><li>What information gets retained in parametric memory of LLMs?</li><li>Correlation of training data distribution with memorization</li><li>When does this memorization play out at inference time?</li><li>What can be done to fix this?</li></ol><h3>Note:</h3><p><a target="_blank" rel="noopener" href="https://ui.adsabs.harvard.edu/abs/2022arXiv220207646C/abstract"><em>Carlini, Nicholas, et al. “Quantifying memorization across neural language models.” arXiv preprint arXiv:2202.07646 (2022)</em></a></p><p>Measures the memorization by prompting the model with partial strings from training data, in real life situations this is impractical as users may not have knowledge on what was present in the training dataset. However, the research goes to quantify how much data is actually present in memory of LLMs which helps quantify this effect.</p><p><strong>References:</strong></p><ol><li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2202.07646">Quantifying Memorization Across Neural Language Models</a></li><li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/kandpal22a/kandpal22a.pdf">Deduplicating Training Data Mitigates Privacy Risks in Language Models</a></li><li><a target="_blank" rel="noopener" href="https://news.cornell.edu/stories/2024/01/chatgpt-memorizes-and-spits-out-entire-poems">ChatGPT ‘memorizes’ and spits out entire poems</a></li></ol>
         </div>
@@ -130,6 +112,6 @@
   </div>
 </footer>
   </div>
-  <script src="../blog.js?v=14"></script>
+  <script src="../blog.js?v=18"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://www.srirams.dev/blog/running-language-models-locally/">
   <link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="../blog.css?v=14">
+  <link rel="stylesheet" href="../blog.css?v=18">
   <title>Running Language Models Locally: A Beginner’s Guide — Sriram Selvam</title>
 </head>
 <body class="article-page">
@@ -59,17 +59,10 @@
     <a class="narrow-link is-parent" href="../../#writing">Writing</a>
     <a class="narrow-context-link is-ancestor" href="../">All writing</a>
     <a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="Running Language Models Locally: A Beginner’s Guide">Running Language Models Locally: A Beginner’s Guide</a>
-    <button type="button" class="narrow-context-link narrow-essay-toggle" data-essay-menu-toggle aria-expanded="false" aria-controls="essay-navigation"><span>In this essay</span><span aria-hidden="true">+</span></button>
     <a class="narrow-link" href="../../#experience">Experience</a>
     <a class="narrow-link" href="../../#press">Press</a>
     <a class="narrow-link" href="../../#education">Education</a>
     <a class="narrow-link" href="../../#contact">Contact</a>
-  </div>
-  <div class="narrow-essay-panel" data-essay-menu id="essay-navigation" hidden>
-    <div class="narrow-essay-panel-inner">
-      <div class="narrow-essay-panel-heading"><span>In this essay</span><button type="button" data-essay-menu-close aria-label="Close article navigation">Close</button></div>
-      <div class="narrow-essay-links" data-article-toc-narrow role="group" aria-label="Article sections"></div>
-    </div>
   </div>
   <button type="button" data-theme-toggle data-theme-toggle-compact aria-pressed="false">
   <svg data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><path data-theme-moon d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><g data-theme-sun><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></g></svg>
@@ -80,12 +73,7 @@
     <article class="essay">
       <header class="article-header">
         <div class="hero-glow" data-hero-glow aria-hidden="true"></div>
-        <div class="article-title-row" data-row>
-          <div class="article-meta" data-meta-col data-reveal data-delay="60">
-            <span>Feb 18, 2025</span>
-            <span class="article-kind">Guide</span>
-            <span>5 min read</span>
-          </div>
+        <div class="article-title-row">
           <div class="article-title-copy">
             <h1 data-reveal data-delay="90">Running Language Models Locally: A Beginner’s Guide</h1>
             <p class="article-deck" data-reveal data-delay="180">Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.</p>
@@ -94,12 +82,6 @@
         </div>
       </header>
       <div class="article-layout">
-        <aside class="article-aside" aria-label="Article navigation">
-          <div class="aside-sticky">
-            <span class="aside-label">In this essay</span>
-            <div data-article-toc role="group" aria-label="Article sections"></div>
-          </div>
-        </aside>
         <div class="article-body" id="article-body">
           <figure><img alt="" src="../media/cfd645e7d08b-1.png" width="1024" height="1024" loading="lazy" decoding="async" /></figure><p>Language models are transforming the way we interact with AI, with services like ChatGPT, Copilot, Gemini, and Perplexity offering seamless conversational experiences. However, many users engage with these models only through cloud-based platforms, unaware that they can experiment with and run models locally — even on low-resource machines.</p><p>Thanks to recent advancements in model optimization, including distillation and quantization, smaller language models have become more accessible. If you’re interested in exploring local AI without requiring powerful hardware, there are user-friendly applications that make this possible.</p><h2>Why Run Language Models Locally?</h2><ul><li><strong>Privacy:</strong> Avoid sending data to cloud-based AI services.</li><li><strong>Customization:</strong> Fine-tune models for specific tasks.</li><li><strong>Offline Access:</strong> Use AI capabilities without an internet connection.</li><li><strong>Cost Savings:</strong> Eliminate reliance on paid API services.</li></ul><h2>Exploring LM Studio and Ollama</h2><p>Two notable options are <strong>LM Studio</strong> and <strong>Ollama</strong>, both of which provide intuitive ways to interact with open-source language models.</p><h3>LM Studio (<a target="_blank" rel="noopener" href="https://lmstudio.ai/">lmstudio.ai</a>)</h3><p>LM Studio offers a comprehensive multi-threaded chat interface, making it an excellent choice for those who prefer a graphical user experience. The platform features an extensive catalog of models and allows users to experiment with different LLMs seamlessly. Additionally, LM Studio can function as a server, enabling integration with other applications.</p><h3>Ollama (<a target="_blank" rel="noopener" href="https://ollama.com/">ollama.com</a>)</h3><p>Ollama provides a lightweight command-line interface for interacting with language models. It is ideal for users comfortable with terminal-based workflows and supports model serving capabilities, allowing for broader applications in AI development and experimentation.</p><p>As LM Studio is my personal favorite, lets take a detailed look on that below.</p><h2>Getting Started with LM Studio</h2><p>Visit <a target="_blank" rel="noopener" href="https://lmstudio.ai/">lmstudio.ai</a> and download the appropriate version for your operating system.</p><figure><img alt="Model Catalog from LM Studio" src="../media/cfd645e7d08b-2.png" width="1024" height="611" loading="lazy" decoding="async" /><figcaption>Model Catalog from LM Studio</figcaption></figure><p>As seen above, LM studio offers a simple intuitive interface to pick a model to be loaded into local machine. Consider paying attention to the “Likely too large for this machine”</p><figure><img alt="Warning Message : Model too large for the machine" src="../media/cfd645e7d08b-3.png" width="1024" height="334" loading="lazy" decoding="async" /><figcaption>Warning Message : Model too large for the machine</figcaption></figure><h2>Loading the downloaded model</h2><figure><img alt="Load Model Page displaying all available models in local machine" src="../media/cfd645e7d08b-4.png" width="1024" height="255" loading="lazy" decoding="async" /><figcaption>Load Model Page displaying all available models in local machine</figcaption></figure><figure><img alt="Customization Settings for Model Load" src="../media/cfd645e7d08b-5.png" width="1024" height="927" loading="lazy" decoding="async" /><figcaption>Customization Settings for Model Load</figcaption></figure><p>When available, offload the model to GPU for the best performance, so those matrix multiplications are parallelized.</p><h2>Performance Metrics</h2><p>Once the model is loaded, start playing around in the chat interface and view your system performance with metrics like</p><ul><li>Tokens/second</li><li>Seconds to first token</li><li>System Resource Usage</li></ul><figure><img alt="Chat metrics per message" src="../media/cfd645e7d08b-6.png" width="1024" height="853" loading="lazy" decoding="async" /><figcaption>Chat metrics per message</figcaption></figure><h2>Create your own assistant</h2><p>Create your own chat personas or task specific assistant by customizing the system prompts. We will create a bot that is an assistant at local coffee gear shop. View system prompt below,</p><pre>You are an assistant at a local espresso equipment store.<br>Your role is to provide the response in the format of pros and cons for any coffee machine that is selected by the user and be helpful with their questions.<br><br>Here is an example interaction:<br>User: Tell me about Breville Barista Express?<br><br>Assistant:<br><br>Breville Barista Express – Pros &amp; Cons<br><br>✅ Pros:<br><br>Built-in Grinder – Conical burr grinder provides fresh grounds on demand.<br>Semi-Automatic Control – Good balance between automation and hands-on espresso making.<br>Temperature Control – PID system ensures consistent extraction temperature.<br>Steam Wand – Manual wand allows for microfoam milk texturing.<br>Value for Money – High-end features at a mid-range price.<br>❌ Cons:<br><br>Learning Curve – Requires some practice to dial in grind size and pressure.<br>Single Boiler – Can’t brew and steam milk simultaneously.<br>Limited Grinder Settings – Fewer adjustments compared to standalone grinders.<br>Plastic Components – Some parts feel less durable over time.<br><br>Let me know if you’d like a comparison with another machine or any recommendations based on your preferences! 😊</pre><figure><img alt="Sample interaction with the newly created Espresso Gear Assistant" src="../media/cfd645e7d08b-7.png" width="1024" height="652" loading="lazy" decoding="async" /><figcaption>Sample interaction with the newly created Espresso Gear Assistant</figcaption></figure><h2>Structured Output</h2><p>You can get more from local LMs by enabling structured output from the model under Advanced configuration. This can be extremely valuable in minimizing the loss of data during string extraction.</p><pre>{<br>  &quot;type&quot;: &quot;object&quot;,<br>  &quot;properties&quot;: {<br>    &quot;machine_name&quot;: {<br>      &quot;type&quot;: &quot;string&quot;,<br>      &quot;description&quot;: &quot;The name of the coffee machine.&quot;<br>    },<br>    &quot;pros&quot;: {<br>      &quot;type&quot;: &quot;array&quot;,<br>      &quot;items&quot;: {<br>        &quot;type&quot;: &quot;string&quot;,<br>        &quot;description&quot;: &quot;A positive aspect of the coffee machine.&quot;<br>      },<br>      &quot;description&quot;: &quot;A list of pros for the coffee machine.&quot;<br>    },<br>    &quot;cons&quot;: {<br>      &quot;type&quot;: &quot;array&quot;,<br>      &quot;items&quot;: {<br>        &quot;type&quot;: &quot;string&quot;,<br>        &quot;description&quot;: &quot;A negative aspect of the coffee machine.&quot;<br>      },<br>      &quot;description&quot;: &quot;A list of cons for the coffee machine.&quot;<br>    }<br>  },<br>  &quot;required&quot;: [<br>    &quot;machine_name&quot;,<br>    &quot;pros&quot;,<br>    &quot;cons&quot;<br>  ]<br>}</pre><figure><img alt="Structured Output from LM after settings update." src="../media/cfd645e7d08b-8.png" width="1024" height="654" loading="lazy" decoding="async" /><figcaption>Structured Output from LM after settings update.</figcaption></figure><h2>Conclusion</h2><p>Running language models locally empowers users with greater control, privacy, and flexibility in their AI interactions. With tools like LM Studio and Ollama, experimenting with LLMs has never been easier. As the field continues to evolve, local AI solutions will become even more powerful, making this the perfect time to get started. Let&#39;s look at how to use the LM Studio’s server mode in Part 2.</p>
         </div>
@@ -130,6 +112,6 @@
   </div>
 </footer>
   </div>
-  <script src="../blog.js?v=14"></script>
+  <script src="../blog.js?v=18"></script>
 </body>
 </html>

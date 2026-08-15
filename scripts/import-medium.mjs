@@ -92,10 +92,6 @@ const formatDate = (date) => new Intl.DateTimeFormat('en-US', {
   month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
 }).format(date);
 
-const formatShortDate = (date) => new Intl.DateTimeFormat('en-US', {
-  month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
-}).format(date);
-
 const formatMonthYear = (date) => new Intl.DateTimeFormat('en-US', {
   month: 'short', year: 'numeric', timeZone: 'UTC',
 }).format(date);
@@ -133,14 +129,7 @@ const profileNavigation = ({ depth = 1, currentArticle = null } = {}) => {
         ${currentArticle ? `<a class="rail-sub-link rail-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}"><span>${htmlEscape(currentArticle.title)}</span></a>` : ''}
       </div>`;
   const narrowWritingTree = `<a class="narrow-context-link${currentArticle ? ' is-ancestor' : ' is-active'}" href="${allWritingPath}"${currentArticle ? '' : ' aria-current="page"'}>All writing</a>
-    ${currentArticle ? `<a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}">${htmlEscape(currentArticle.title)}</a>
-    <button type="button" class="narrow-context-link narrow-essay-toggle" data-essay-menu-toggle aria-expanded="false" aria-controls="essay-navigation"><span>In this essay</span><span aria-hidden="true">+</span></button>` : ''}`;
-  const narrowEssayPanel = currentArticle ? `<div class="narrow-essay-panel" data-essay-menu id="essay-navigation" hidden>
-    <div class="narrow-essay-panel-inner">
-      <div class="narrow-essay-panel-heading"><span>In this essay</span><button type="button" data-essay-menu-close aria-label="Close article navigation">Close</button></div>
-      <div class="narrow-essay-links" data-article-toc-narrow role="group" aria-label="Article sections"></div>
-    </div>
-  </div>` : '';
+    ${currentArticle ? `<a class="narrow-context-link narrow-article-link is-active" href="./" aria-current="page" title="${htmlEscape(currentArticle.title)}">${htmlEscape(currentArticle.title)}</a>` : ''}`;
   return `<nav class="profile-rail" data-profile-rail aria-label="Portfolio navigation">
   <div data-reveal data-delay="120">
     <a class="rail-name" href="${homePath}">Sriram Selvam</a>
@@ -154,7 +143,7 @@ const profileNavigation = ({ depth = 1, currentArticle = null } = {}) => {
 <nav class="profile-nav-narrow" data-nav-narrow aria-label="Portfolio navigation">
   <div class="profile-nav-scroll" data-nav-narrow-scroll>
     ${items.map((item) => `<a class="narrow-link${item.writingParent ? ' is-parent' : ''}" href="${item.href}">${item.label}</a>${item.writingParent ? `\n    ${narrowWritingTree}` : ''}`).join('\n    ')}
-  </div>${narrowEssayPanel ? `\n  ${narrowEssayPanel}` : ''}
+  </div>
   ${themeButton('compact')}
 </nav>`;
 };
@@ -186,7 +175,7 @@ const documentHead = ({ title, description, canonical, cssPath, type = 'website'
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="${cssPath.includes('../blog.css') ? '../../favicon.svg?v=2' : '../favicon.svg?v=2'}" type="image/svg+xml">
-  <link rel="stylesheet" href="${cssPath}?v=14">
+  <link rel="stylesheet" href="${cssPath}?v=18">
   <title>${htmlEscape(title)}</title>
 </head>`;
 
@@ -266,7 +255,7 @@ const portfolioPageStart = ({ depth, bodyClass = '', currentArticle = null }) =>
 const portfolioPageEnd = ({ depth, scriptPath }) => `</main>
     ${siteFooter({ depth })}
   </div>
-  <script src="${scriptPath}?v=14"></script>
+  <script src="${scriptPath}?v=18"></script>
 </body>
 </html>`;
 
@@ -332,12 +321,7 @@ ${portfolioPageStart({ depth: 2, bodyClass: 'article-page', currentArticle: arti
     <article class="essay">
       <header class="article-header">
         ${heroGlow}
-        <div class="article-title-row" data-row>
-          <div class="article-meta" data-meta-col data-reveal data-delay="60">
-            <span>${formatShortDate(article.publishedAt)}</span>
-            <span class="article-kind">${htmlEscape(article.kind)}</span>
-            <span>${article.readMinutes} min read</span>
-          </div>
+        <div class="article-title-row">
           <div class="article-title-copy">
             <h1 data-reveal data-delay="90">${htmlEscape(article.title)}</h1>
             <p class="article-deck" data-reveal data-delay="180">${htmlEscape(article.description)}</p>
@@ -346,12 +330,6 @@ ${portfolioPageStart({ depth: 2, bodyClass: 'article-page', currentArticle: arti
         </div>
       </header>
       <div class="article-layout">
-        <aside class="article-aside" aria-label="Article navigation">
-          <div class="aside-sticky">
-            <span class="aside-label">In this essay</span>
-            <div data-article-toc role="group" aria-label="Article sections"></div>
-          </div>
-        </aside>
         <div class="article-body" id="article-body">
           ${transformArticleContent(article, localLinks, dimensionsBySource)}
         </div>

@@ -115,59 +115,9 @@ if (progress) {
 }
 
 const articleBody = document.querySelector('.article-body');
-const tableOfContents = document.querySelector('[data-article-toc]');
-const narrowTableOfContents = document.querySelector('[data-article-toc-narrow]');
-if (articleBody && (tableOfContents || narrowTableOfContents)) {
-  const headings = Array.from(articleBody.querySelectorAll('h2'));
-  const tocTargets = [tableOfContents, narrowTableOfContents].filter(Boolean);
-  const createTocLink = (heading, index) => {
-    const link = document.createElement('a');
-    link.href = `#${heading.id}`;
-    link.title = heading.textContent;
-    const number = document.createElement('span');
-    number.className = 'toc-number';
-    number.setAttribute('aria-hidden', 'true');
-    number.textContent = String(index + 1).padStart(2, '0');
-    const label = document.createElement('span');
-    label.className = 'toc-label';
-    label.textContent = heading.textContent;
-    link.append(number, label);
-    return link;
-  };
-
-  headings.forEach((heading, index) => {
-    heading.id = `section-${String(index + 1).padStart(2, '0')}`;
-    tocTargets.forEach((target) => target.append(createTocLink(heading, index)));
-  });
-
-  if (headings.length && 'IntersectionObserver' in window) {
-    const tocLinks = tocTargets.flatMap((target) => Array.from(target.querySelectorAll('a')));
-    const railScroller = tableOfContents?.closest('.rail-links');
-    const markActive = (id) => {
-      tocLinks.forEach((link) => {
-        const isActive = link.hash === `#${id}`;
-        link.classList.toggle('is-active', isActive);
-        if (isActive) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-      const activeRailLink = tableOfContents?.querySelector('.is-active');
-      if (!railScroller || !activeRailLink || !activeRailLink.offsetParent) return;
-      const scrollerBounds = railScroller.getBoundingClientRect();
-      const linkBounds = activeRailLink.getBoundingClientRect();
-      if (linkBounds.top < scrollerBounds.top + 8) {
-        railScroller.scrollBy({ top: linkBounds.top - scrollerBounds.top - 12, behavior: reduceMotion ? 'auto' : 'smooth' });
-      } else if (linkBounds.bottom > scrollerBounds.bottom - 8) {
-        railScroller.scrollBy({ top: linkBounds.bottom - scrollerBounds.bottom + 12, behavior: reduceMotion ? 'auto' : 'smooth' });
-      }
-    };
-    markActive(headings[0].id);
-    const headingObserver = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-      if (visible[0]) markActive(visible[0].target.id);
-    }, { rootMargin: '-12% 0px -72% 0px', threshold: 0 });
-    headings.forEach((heading) => headingObserver.observe(heading));
-  }
-}
+articleBody?.querySelectorAll('h2').forEach((heading, index) => {
+  heading.id = `section-${String(index + 1).padStart(2, '0')}`;
+});
 
 const desktopRailScroller = document.querySelector('.rail-links');
 let desktopRailFrame = 0;
@@ -190,39 +140,6 @@ if (desktopRailScroller) {
   desktopRailScroller.addEventListener('scroll', scheduleDesktopRailEdge, { passive: true });
   window.addEventListener('resize', scheduleDesktopRailEdge);
   updateDesktopRailEdge();
-}
-
-const essayMenuToggle = document.querySelector('[data-essay-menu-toggle]');
-const essayMenu = document.querySelector('[data-essay-menu]');
-const essayMenuClose = document.querySelector('[data-essay-menu-close]');
-const setEssayMenuOpen = (open) => {
-  if (!essayMenuToggle || !essayMenu) return;
-  essayMenu.hidden = !open;
-  essayMenuToggle.setAttribute('aria-expanded', String(open));
-  const indicator = essayMenuToggle.lastElementChild;
-  if (indicator) indicator.textContent = open ? '−' : '+';
-};
-
-if (essayMenuToggle && essayMenu) {
-  essayMenuToggle.addEventListener('click', () => setEssayMenuOpen(essayMenu.hidden));
-  essayMenuClose?.addEventListener('click', () => {
-    setEssayMenuOpen(false);
-    essayMenuToggle.focus();
-  });
-  essayMenu.addEventListener('click', (event) => {
-    if (event.target.closest('a')) setEssayMenuOpen(false);
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || essayMenu.hidden) return;
-    setEssayMenuOpen(false);
-    essayMenuToggle.focus();
-  });
-  document.addEventListener('click', (event) => {
-    if (!essayMenu.hidden && !narrowNav?.contains(event.target)) setEssayMenuOpen(false);
-  });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1059 && !essayMenu.hidden) setEssayMenuOpen(false);
-  });
 }
 
 const glow = document.querySelector('[data-hero-glow]');
